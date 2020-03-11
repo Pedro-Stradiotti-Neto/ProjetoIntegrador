@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Bellota+Text&display=swap');
+
+main{
+    max-width: 80%;
+    margin: 0 auto;
+    font-family: 'Bellota Text', cursive;
+}
+
+
+.navbg{
+    background-color: #183059;
+    height: 80px;
+    
+}
+
+
+.dropdown{
+    margin-right: 20px;
+}
+
+.botao-drop{
+    background-color:white;
+    color: #276fbf;
+    border: none;
+}
+
+.botao-search{
+    background-color:white;
+    color: #276fbf;
+    border: none;
+}
+
+.formulario{
+    width: 40%;
+    font-weight: bold;
+    margin-top: -50px;
+    
+}
+
+label{
+    font-size: 25px;
+}
+
+
+
+h1{
+    text-align: center;
+    margin-top: 100px;
+    font-size: 4em;
+    
+}
+
+#contato{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+    
+}
+
+span{
+    color: red;
+    font-size: 20px;
+}
+
+.contato-botao{
+    background-color: #183059;
+    color: white;
+}
+
+.contato-botao:hover{
+    color: white;
+    font-weight: bold;
+}
+
+.mapa{
+    margin-top: -20px;
+}
+
+.icons{
+    border-radius: 3px;
+    font-size: 20px;
+    margin-right: 10px;
+}
