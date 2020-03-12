@@ -42,34 +42,43 @@
 
             <div id="contato">
                 <form class="formulario">
+
                     <div class="form-group">
                         <i class="fas fa-user-circle icons"></i><label
                             for="exampleInputname1">Nome<span>*</span></label>
-                        <input type="text" class="form-control" id="exampleInputPassword1"
-                            placeholder="Digite seu nome">
+                        <input type="text" class="form-control" id="nomeContato" placeholder="Digite seu nome">
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email" id="alert-name">
+                        </div>
                     </div>
+
                     <div class="form-group">
                         <i class="fas fa-envelope-square icons"></i><label
                             for="exampleInputEmail1">Email<span>*</span></label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Digite seu Email">
+                        <input type="email" class="form-control" id="emailContato" placeholder="Digite seu Email">
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email" id="alert-email">
+                        </div>
                         <small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar o seu email com
                             ninguém</small>
                     </div>
 
                     <div class="form-group">
                         <i class="fas fa-phone-square-alt icons"></i><label for="exampleInputname1">Telefone</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1"
-                            placeholder="Digite seu telefone">
+                        <input type="text" class="form-control" id="telContato" placeholder="Digite seu telefone">
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email"
+                            id="alert-telefone">
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Digite sua mensagem no campo
                             abaixo<span>*</span></label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        <textarea class="form-control" id="msgContato" rows="5"></textarea>
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email"
+                            id="alert-mensagem">
+                        </div>
                     </div>
 
-                    <button type="submit" class="btn contato-botao">Enviar</button>
+                    <button type="submit" class="btn contato-botao" id="enviar">Enviar</button>
 
 
                 </form>
@@ -82,6 +91,8 @@
             </div>
         </section>
     </main>
+
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
