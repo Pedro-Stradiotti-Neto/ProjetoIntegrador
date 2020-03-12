@@ -23,14 +23,16 @@ function validaDados(name, mail, msg) {
     document.getElementById("alert-mensagem").style.visibility = "hidden";
 
     let controle = true;    //-> Faz o controle das verificacões
+    let auxName = name.split(" ").join("");
+    let auxMsg = msg.split(" ").join("");
 
-    if (name.length < 3) {
+    if (name.length < 3 || !auxName) {
         document.getElementById("alert-name").innerHTML = "Nome Inválido!";
         document.getElementById("alert-name").style.visibility = "visible";
         controle++;
     }
 
-    if (msg.length < 10) {
+    if (msg.length < 10 || !auxMsg) {
         document.getElementById("alert-mensagem").innerHTML = "Texto Inválido!";
         document.getElementById("alert-mensagem").style.visibility = "visible";
         controle++;
