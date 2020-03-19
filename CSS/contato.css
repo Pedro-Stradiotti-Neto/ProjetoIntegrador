@@ -6,25 +6,33 @@ main{
     font-family: 'Bellota Text', cursive;
 }
 
-.navbg{
+.navbar {
+    font-size: 20px;
+}
+
+.menu{
     background-color: #183059;
-    height: 80px;   
 }
 
-.dropdown{
-    margin-right: 20px;
+.menu > li > a{
+    background-color: #183059;
 }
 
-.botao-drop{
-    background-color:white;
-    color: #276fbf;
-    border: none;
+.hamburger{
+    font-size: 30px;
+    color: white;
 }
 
-.botao-search{
-    background-color:white;
-    color: #276fbf;
-    border: none;
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white !important;
+}
+
+.btn{
+    font-size: 20px;
+}
+
+.borda{
+    border: yellow solid 10px;
 }
 
 .formulario{
@@ -41,7 +49,6 @@ h1{
     text-align: center;
     margin-top: 100px;
     font-size: 4em;
-    
 }
 
 #contato{
@@ -76,15 +83,45 @@ span{
     margin-right: 10px;
 }
 
+footer{
+    width: 100vw;
+    background-color: #183059; 
+    padding: 20px 8%; 
+    margin-top: 30px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.social-icons {
+    margin: auto 0;
+}
+
+.social-icons a {
+    color: #fff;
+    margin-left: 12px;
+    font-size: 1.5em;
+}
+
+.btn-facebook:hover {
+    color:#3B5998;
+}
+
+.btn-twitter:hover {
+    color:#54A4D6;
+}
+
+.btn-google:hover {
+    color: #D73D32;
+}
+
 @media screen and (max-width:1372px){
     label{
         font-size: 18px;
     }
-
 }
 
 @media screen and (max-width:1320px){
-    
     .formulario{
         width: 60%;
     }
@@ -98,7 +135,6 @@ span{
         width: 400px;
         height: 300px;
     }
-    
 }
 
 @media screen and (max-width:978px){
@@ -124,8 +160,6 @@ span{
         width: 90%;
     }
 }
-
-
 
 @media screen and (max-width:604px){
     h1{

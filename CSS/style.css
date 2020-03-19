@@ -1,80 +1,148 @@
 @import url('https://fonts.googleapis.com/css?family=Bellota+Text&display=swap');
 
-
-/* body{
-    max-width: 1200px;
-    margin: 0 auto;
-} */
+body{
+    display: flex;
+    flex-direction: column;
+}
 main{
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 20px;
 }
-.navbg{
+
+.navbar {
+    font-size: 20px;
+}
+
+.menu{
     background-color: #183059;
-    height: 80px;
-    
 }
 
-
-.dropdown{
-    margin-right: 20px;
+.menu > li > a{
+    background-color: #183059;
 }
 
-.botao-drop{
-    background-color:white;
-    color: #276fbf;
-    border: none;
+.hamburger{
+    font-size: 30px;
+    color: white;
 }
 
-.botao-search{
-    background-color:white;
-    color: #276fbf;
-    border: none;
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white !important;
 }
 
-
-.qualquer{
-    display: block;
-    height: 400px;
-    background-color: antiquewhite;
-    margin-top: 100px;
+.btn{
+    font-size: 20px;
 }
 
-#ajuda{
+.borda{
+    border: yellow solid 10px;
+}
+
+.slide{
+    margin-bottom: 200px;
+}
+
+.teste{
+    margin: 100px 10px 0 10px;
+}
+
+#sobre{
     display: flex;
     justify-content: space-between;
     padding: 0 10px 0 10px;
 }
 
-#ajuda p{
-    max-width: 500px;
+#sobre h2{
+    margin-top: 50px;
+    color: #183059;
+    margin-left: 200px;
+}
+
+#sobre p{
+    max-width: 800px;
     font-size: 1.5em;
     font-family: 'Bellota Text', cursive;
-    text-align: left;
     color: #183059;
-    
+    margin-left: 200px;
 }
 
-#ajuda h2{
-    margin-top: 50px;
-    color: #183059;
-    
+.principal{
+    display: block;
+    height: 400px;
+    background-size: 1200px 526px;
+    margin: 100px 0 200px 0;
+    /* border: 1px solid #183059; */
 }
 
-#ajuda img{
-    margin-top: 50px;
-    width: 100%;
+.img1 {
+    width: 160px;
+    height: 210px;
+    position: absolute;
+    top:1100px;
+    right: 550px;
+    z-index: 1;
+    box-shadow: 2px 2px 2px;
+    background-color: #fff;
+}
+
+.img2 {
+    width: 160px;
+    height: 210px;
+    position: absolute;
+    top: 1200px;
+    right: 400px;
+    z-index: 2;
+    box-shadow: 2px 2px 2px;
+    background-color: #fff;
+}
+
+.img3 {
+    width: 160px;
+    height: 210px;
+    position: absolute;
+    top: 1100px;
+    right: 250px;
+    z-index: 1;
+    box-shadow: 2px 2px 2px;
+    background-color: #fff;
+}
+
+.btn-new {
+    border-radius: 20px;
+    background-color: #183059;
+    border: none;
+}
+
+.btn-new:hover{
+    background-color: #fff;
+    color: #183059;
+    border: 1px solid #183059;
+}
+
+.position-section {
+    display: inline-block;
+    position: relative;
+    top: 110px;
+    left: 200px;
+}
+
+.imagens {
+    display: inline-flex;
+    position: relative;
+    border: 1px solid red;
+    width: 360px;
     height: 300px;
+    top: 50px;
+    left: 410px;
 }
-.carro{
+
+#parallax-image{
+    background-image: url("../img/roupas.jpg");
     height: 500px;
-}
-
-
-.teste{
-    margin: 100px 10px 0 10px;
-    
-    
+    margin: 50px 0 50px 0;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .card-nosso{
@@ -83,36 +151,44 @@ main{
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    
 }
 
 /* .card-nosso div{
     margin-bottom: 20px;
 }
+
 .carousel slide{
     margin-top: 100px;
 } */
-.social-icons {
-    float: right;
-}
-.social-icons a {
-    color: #fff; float: left; margin-left: 12px;
-}
-.btn-facebook:hover {
-    color:#3B5998;
-}
-.btn-twitter:hover {
-    color:#54A4D6;
-}
-.btn-google:hover {
-    color: #D73D32;
-}
+
 footer{
-    width: 100%; 
-    float: left;
+    width: 100vw;
     background-color: #183059; 
     padding: 20px 8%; 
     margin-top: 30px;
     color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.social-icons {
+    margin: auto 0;
 }
 
+.social-icons a {
+    color: #fff;
+    margin-left: 12px;
+    font-size: 1.5em;
+}
+
+.btn-facebook:hover {
+    color:#3B5998;
+}
+
+.btn-twitter:hover {
+    color:#54A4D6;
+}
+
+.btn-google:hover {
+    color: #D73D32;
+}

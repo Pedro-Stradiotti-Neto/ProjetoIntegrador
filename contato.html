@@ -8,29 +8,53 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./CSS/contato.css">
     <script src="https://kit.fontawesome.com/bc30e0ebda.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="./img/ajuda.jpg">
-
+    <link rel="shortcut icon" href="img/logo.png">
 
     <title>Home</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-light navbg">
-            <a href="https://twitter.com/slackhq"><i class="fab fa-twitter fa-2x"></i></a>
-            <form class="form-inline">
-                <div class="dropdown ">
-                    <button class="btn btn-warnin dropdown-toggle botao-drop" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                    </div>
+        <nav class="navbar navbar-expand-lg navbar-warning border-bottom border-warning menu">
+            <div class="container">
+                <a class="navbar-brand h1 mb-0 " href="#"><img src="img/logo-completa.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars hamburger"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSite">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Noticias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Duvidas</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light ml-2" href="#" data-toggle="dropdown"
+                                id="navDrop">
+                                Redes Socias
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Facebook</a>
+                                <a class="dropdown-item" href="#">Instagram</a>
+                                <a class="dropdown-item" href="#">Linkedin</a>
+                            </div>
+                        </li>
+                    </ul>
+
                 </div>
-                <button class="btn btn-warnin my-2 my-sm-0 botao-search" type="submit">Search</button>
-            </form>
+            </div>
         </nav>
     </header>
     <main>
@@ -43,34 +67,42 @@
             <div id="contato">
                 <form class="formulario">
                     <div class="form-group">
-                        <i class="fas fa-user-circle icons"></i><label
-                            for="exampleInputname1">Nome<span>*</span></label>
-                        <input type="text" class="form-control" id="exampleInputPassword1"
-                            placeholder="Digite seu nome">
+                        <i class="fas fa-user-circle icons"></i><label for="nomeContato">Nome<span>*</span></label>
+                        <input type="text" class="form-control" id="nomeContato" placeholder="Digite seu nome">
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email" id="alert-name">
+                        </div>
                     </div>
+
                     <div class="form-group">
                         <i class="fas fa-envelope-square icons"></i><label
-                            for="exampleInputEmail1">Email<span>*</span></label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            for="emailContato">Email<span>*</span></label>
+                        <input type="text" class="form-control" id="emailContato" aria-describedby="emailHelp"
                             placeholder="Digite seu Email">
-                        <small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar o seu email com
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email" id="alert-email">
+                        </div>
+                        <small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar o seu
+                            email com
                             ninguém</small>
                     </div>
 
                     <div class="form-group">
-                        <i class="fas fa-phone-square-alt icons"></i><label for="exampleInputname1">Telefone</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1"
-                            placeholder="Digite seu telefone">
+                        <i class="fas fa-phone-square-alt icons"></i><label for="telContato">Telefone</label>
+                        <input type="text" class="form-control" id="telContato" placeholder="Digite seu telefone">
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email"
+                            id="alert-telefone">
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Digite sua mensagem no campo
+                        <label for="msgContato">Digite sua mensagem no campo
                             abaixo<span>*</span></label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        <textarea class="form-control" id="msgContato" rows="5"></textarea>
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email"
+                            id="alert-mensagem">
+                        </div>
                     </div>
 
-                    <button type="submit" class="btn contato-botao">Enviar</button>
-
+                    <button type="submit" class="btn contato-botao" id="enviar">Enviar</button>
 
                 </form>
                 <div class="mapa">
@@ -82,6 +114,17 @@
             </div>
         </section>
     </main>
+
+    <footer>
+        <a class="navbar-brand"><img src="img/logo-completa.png" alt="Logo da Smart-Giving"></a>
+        <div class="social-icons">
+            <a href="#" class="btn-facebook"> <i class="fab fa-facebook-square fa-1x"></i> </a>
+            <a href="#" class="btn-twitter"> <i class="fab fa-twitter fa-1x"></i> </a>
+            <a href="#" class="btn-google"> <i class="fab fa-google fa-1x"></i> </a>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

@@ -7,66 +7,60 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+
+    <script src="https://kit.fontawesome.com/bc30e0ebda.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="img/logo.png">
-    <!-- <script src="https://kit.fontawesome.com/bc30e0ebda.js" crossorigin="anonymous"></script> -->
+
     <title>Home</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-light navbg">
-            <a href="#"><img src="img/logo-completa.png" alt=""></a>
-            <form class="form-inline">
-                <div class="dropdown ">
-                    <button class="btn btn-warnin dropdown-toggle botao-drop" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+        <nav class="navbar navbar-expand-lg navbar-warning border-bottom border-warning menu">
+            <div class="container">
+                <a class="navbar-brand h1 mb-0 " href="#"><img src="img/logo-completa.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars hamburger"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSite">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Noticias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Duvidas</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light ml-2" href="#" data-toggle="dropdown"
+                                id="navDrop">
+                                Redes Socias
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Facebook</a>
+                                <a class="dropdown-item" href="#">Instagram</a>
+                                <a class="dropdown-item" href="#">Linkedin</a>
+                            </div>
+                        </li>
+                    </ul>
 
-                    </div>
                 </div>
-                <button class="btn btn-warnin my-2 my-sm-0 botao-search" type="submit">Search</button>
-            </form>
+            </div>
         </nav>
     </header>
     <main>
-
-        <section class="qualquer">
-            <div>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, fugiat? Nemo sint soluta nesciunt. A
-                    nemo tenetur sed, ipsum labore, voluptatibus omnis atque dolor doloribus cupiditate repellat,
-                    officiis
-                    facere fugit.</p>
-            </div>
-
-            <div>
-
-            </div>
-        </section>
-
-        <section id="ajuda">
-            <div>
-                <h2>Sobre nós</h2>
-                <p>
-                    Somos uma Organização sem fins lucrativos e temos como objetivo prestar auxilio
-                    as familias em situação de pouca ou total falta de vestimenta através de doações.
-                    Procuramos levar para estas pessoas ajuda no momento de necessidade, sejam elas vitimas de enchente,
-                    situação de rua
-                    e demais momentos de dificuldade.
-                </p>
-
-            </div>
-
-            <div>
-                <img src="./img/ajuda1.jpg" alt="">
-            </div>
-        </section>
-
-        <section>
+        <section class="slide">
             <div class="teste">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -74,9 +68,9 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
-                    <div class="carousel-inner carro">
+                    <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="./img/Imagem desconto.png" alt="First slide">
+                            <img class="d-block w-100" src="./img/desconto.png" alt="First slide">
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="./img/cabide.png" alt="Second slide">
@@ -95,11 +89,53 @@
                     </a>
                 </div>
             </div>
+
         </section>
 
-        <section>
-            <div class="card-nosso">
+        <section class="principal">
+            <div class="position-section">
+                <h2>Smart Giving</h2>
+                <p>Uma pessoa sempre tem que estar vestida.</p>
+                <button type="button" class="btn btn-primary btn-new">PARTICIPE</button>
+                <button type="button" class="btn btn-primary btn-new">APOIE</button>
+            </div>
 
+            <div class="img1">
+                <img src="./img/t-shirt.png" alt="" width="158px" height="208px">
+            </div>
+
+            <div class="img2">
+                <img src="./img/socks.png" alt="" width="158px" height="208px">
+            </div>
+
+            <div class="img3">
+                <img src="./img/scarf.png" alt="" width="158px" height="208px">
+            </div>
+        </section>
+
+        <section id="sobre">
+            <div>
+                <h2>Sobre nós</h2>
+                <p>
+                    Somos uma Organização sem fins lucrativos e temos como objetivo prestar auxilio
+                    as familias em situação de pouca ou total falta de vestimenta através de doações.
+                    Procuramos levar para estas pessoas ajuda no momento de necessidade, sejam elas vitimas de enchente,
+                    situação de rua
+                    e demais momentos de dificuldade.
+                </p>
+            </div>
+        </section>
+
+        <div id="parallax-image">
+            <div class="row h-100">
+                <div class="col-md-12 align-self-center">
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <h2>Idealizadores</h2>
+            <div class="card-nosso">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="./img/avatar.png" alt="Card image cap">
                     <div class="card-body">
@@ -107,7 +143,6 @@
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
-
                     </div>
                 </div>
 
@@ -118,7 +153,6 @@
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
-
                     </div>
                 </div>
 
@@ -129,7 +163,6 @@
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
-
                     </div>
                 </div>
 
@@ -140,7 +173,6 @@
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
-
                     </div>
                 </div>
 
@@ -153,33 +185,18 @@
                             card's content.</p>
                     </div>
                 </div>
-
-
-
             </div>
-
-
         </section>
-
-
     </main>
 
-
-
     <footer>
-        <a class="navbar-brand">Resto</a>
-
+        <a class="navbar-brand"><img src="img/logo-completa.png" alt="Logo da Smart-Giving"></a>
         <div class="social-icons">
-            <a href="#" class="btn-facebook"> <i class="fa fa-facebook fa-lg"></i> </a>
-            <a href="#" class="btn-twitter"> <i class="fa fa-twitter fa-lg"></i> </a>
-            <a href="#" class="btn-google"> <i class="fa fa-google fa-lg"></i> </a>
+            <a href="#" class="btn-facebook"> <i class="fab fa-facebook-square fa-1x"></i> </a>
+            <a href="#" class="btn-twitter"> <i class="fab fa-twitter fa-1x"></i> </a>
+            <a href="#" class="btn-google"> <i class="fab fa-google fa-1x"></i> </a>
         </div>
     </footer>
-
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
