@@ -22,7 +22,7 @@ function validaDados(name, mail, msg) {
     document.getElementById("alert-email").style.visibility = "hidden";
     document.getElementById("alert-mensagem").style.visibility = "hidden";
 
-    let controle = true;    //-> Faz o controle das verificacões
+    let controle = 0;    //-> Faz o controle das verificacões
 
     if (name.length < 3) {
         document.getElementById("alert-name").innerHTML = "Nome Inválido!";

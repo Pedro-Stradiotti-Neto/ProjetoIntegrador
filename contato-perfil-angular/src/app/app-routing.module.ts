@@ -1,8 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { FaqComponent } from './faq/faq.component';
+import { PoliticaComponent } from './politica/politica.component';
+import { ContatoComponent } from './contato/contato.component';
+import { FeedComponent } from './feed/feed.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'politica', component: PoliticaComponent },
+  { path: 'contato', component: ContatoComponent },
+  { path: 'feed', component: FeedComponent },
+  { path: 'profile', component: ProfileComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
