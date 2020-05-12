@@ -1,7 +1,7 @@
-// Auxilio Validacao
+// Auxilio Validacao - Email
 // https://www.devmedia.com.br/validando-e-mail-em-inputs-html-com-javascript/26427
 
-let terminacoes = [".com", ".co", ".org", ".net", ".br"];
+// let terminacoes = [".com", ".co", ".org", ".net", ".br"];
 
 document.getElementById("enviar").addEventListener("click", (event) => {
     let nome = document.getElementById('nomeContato').value;
@@ -23,19 +23,23 @@ function validaDados(name, mail, msg) {
     document.getElementById("alert-mensagem").style.visibility = "hidden";
 
     let controle = true;    //-> Faz o controle das verificacões
-    let auxName = name.split(" ").join("");
-    let auxMsg = msg.split(" ").join("");
 
-    if (name.length < 3 || !auxName) {
+    if (name.length < 3) {
         document.getElementById("alert-name").innerHTML = "Nome Inválido!";
         document.getElementById("alert-name").style.visibility = "visible";
+        document.getElementById("nomeContato").style.border = "2px solid #dc3545";
         controle++;
+    } else {
+        document.getElementById("nomeContato").style.border = "1px solid #ced4da";
     }
 
-    if (msg.length < 10 || !auxMsg) {
+    if (msg.length < 10) {
         document.getElementById("alert-mensagem").innerHTML = "Texto Inválido!";
         document.getElementById("alert-mensagem").style.visibility = "visible";
+        document.getElementById("msgContato").style.border = "2px solid #dc3545";
         controle++;
+    } else {
+        document.getElementById("msgContato").style.border = "1px solid #ced4da";
     }
 
     // Verificacoes do Email
@@ -46,15 +50,20 @@ function validaDados(name, mail, msg) {
     if (auxEmail.length > 1) {      // Verifica se há espacos entre o email e/ou é uma string vazia
         document.getElementById("alert-email").innerHTML = "Há espacos no e-mail!";
         document.getElementById("alert-email").style.visibility = "visible";
+        document.getElementById("emailContato").style.border = "2px solid #dc3545";
         controle++;
     } else if (antesArroba.length < 3 || antesArroba.indexOf("@") != -1) {
         document.getElementById("alert-email").innerHTML = "E-mail Inválido!";
         document.getElementById("alert-email").style.visibility = "visible";
+        document.getElementById("emailContato").style.border = "2px solid #dc3545";
         controle++;
     } else if (depoisArroba.length < 5 || depoisArroba.indexOf("@") != -1 || !(depoisArroba.endsWith(".com"))) {
         document.getElementById("alert-email").innerHTML = "E-mail Inválido!";
         document.getElementById("alert-email").style.visibility = "visible";
+        document.getElementById("emailContato").style.border = "2px solid #dc3545";
         controle++;
+    } else {
+        document.getElementById("emailContato").style.border = "1px solid #ced4da";
     }
 
     if (controle > 1) {

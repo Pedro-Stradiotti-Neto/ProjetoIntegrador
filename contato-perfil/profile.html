@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/profile.css">
+
+    <script src="https://kit.fontawesome.com/bc30e0ebda.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/logo.png">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-warning border-bottom border-warning menu">
+            <div class="container">
+                <a class="navbar-brand h1 mb-0 " href="#"><img src="img/logo-completa.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars hamburger"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSite">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Noticias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Duvidas</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light ml-2" href="#" data-toggle="dropdown"
+                                id="navDrop">
+                                Redes Socias
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Facebook</a>
+                                <a class="dropdown-item" href="#">Instagram</a>
+                                <a class="dropdown-item" href="#">Linkedin</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="perfil">
+            <img src="./img/avatar.png" alt="Imagem Pessoal" class="img-thumbnail">
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-light">Perfil</button>
+                <button type="button" class="btn btn-light">Doacão de Roupas</button>
+                <button type="button" class="btn btn-light">Sair</button>
+            </div>
+        </div>
+
+        <div class="dadosPessoais">
+            <h1>Dados Pessoais</h1>
+
+            <form>
+                <fieldset disabled>
+                    <div class="dados">
+                        <div class="form-group row">
+                            <label for="nomePerfil" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="nomePerfil">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="emailPerfil" class="col-sm-2 col-form-label">E-mail</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="emailPerfil">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="telPerfil" class="col-sm-2 col-form-label">Telefone</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="telPerfil">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="sexPerfil" class="col-sm-2 col-form-label">Sexo</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="sexPerfil">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="dataPerfil" class="col-sm-2 col-form-label">Data de Nascimento</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="dataPerfil">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row buttons">
+                    <div class="col-sm-10">
+                        <button type="button" class="btn btn-primary" id="edit">Editar</button>
+                        <button disabled type="submit" class="btn btn-primary" id="save">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <a class="navbar-brand"><img src="img/logo-completa.png" alt="Logo da Smart-Giving"></a>
+        <div class="social-icons">
+            <a href="#" class="btn-facebook"> <i class="fab fa-facebook-square fa-1x"></i> </a>
+            <a href="#" class="btn-twitter"> <i class="fab fa-twitter fa-1x"></i> </a>
+            <a href="#" class="btn-google"> <i class="fab fa-google fa-1x"></i> </a>
+        </div>
+    </footer>
+
+    <script src="./js/profile.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
