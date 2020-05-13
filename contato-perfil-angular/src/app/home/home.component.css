@@ -145,7 +145,7 @@ margin-right: 50px;
 }
 
 #parallax-image{
-    background-image: url("./../../assets/roupas.jpg");
+    background-image: url("../../assets/roupas.png");
     height: 400px;
     margin: 50px 0 300px 0;
     background-attachment: fixed;
