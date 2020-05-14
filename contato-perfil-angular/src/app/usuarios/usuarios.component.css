@@ -1,0 +1,17 @@
+.titulo {
+    max-width: 100%;
+    height: 200px;
+    background-color: #183059;    
+    padding-top: 100px;
+    padding-left: 50px;
+}
+
+h2 {
+    color: #fff;
+    font-weight: bolder;
+    font-size: 2.5em;    
+}
+
+.card-color {
+    background-color: #183059;    
+}

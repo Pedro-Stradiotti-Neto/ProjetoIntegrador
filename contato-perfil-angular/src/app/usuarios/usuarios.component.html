@@ -1,0 +1,28 @@
+<div class="titulo">
+    <h2>Usuários</h2>
+</div>
+
+<div class="container">
+
+    <div style="padding-left: 10%;" class="col-md-12 align-items-center">
+        <div class="col-md-12 mb-5 mt-5 d-flex flex-wrap px-2 align-items-center">
+            <div class="card mb-5 mr-4 ml-4" style="width: 25rem;" *ngFor="let usuario of listaUsuarios">
+
+                <div class="card-body " style="text-align: center;">
+                    <h5 class="card-header card-color">nome: {{ usuario.nome }}</h5>
+
+                    <p class="card-text">id: {{ usuario.id }}</p>
+                    <p class="card-text">email: {{ usuario.email }}</p>
+                    <p class="card-text">senha: {{ usuario.senha }}</p>
+                    <button class="mr-3 btn btn-outline-info" href="#">
+                        Editar
+                    </button>
+
+                    <button class="btn btn-outline-danger ml-3" href="#">
+                        Apagar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

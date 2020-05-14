@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/contato.css">
+    <script src="https://kit.fontawesome.com/bc30e0ebda.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/logo.png">
+
+    <title>Home</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-warning border-bottom border-warning menu">
+            <div class="container">
+                <a class="navbar-brand h1 mb-0 " href="#"><img src="img/logo-completa.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars hamburger"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSite">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Noticias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Duvidas</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light ml-2" href="#" data-toggle="dropdown"
+                                id="navDrop">
+                                Redes Socias
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Facebook</a>
+                                <a class="dropdown-item" href="#">Instagram</a>
+                                <a class="dropdown-item" href="#">Linkedin</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <section>
+            <div>
+                <h1>Entre em contato</h1>
+            </div>
+
+            <div id="contato">
+                <form class="formulario">
+                    <div class="form-group">
+                        <i class="fas fa-user-circle icons"></i><label for="nomeContato">Nome<span>*</span></label>
+                        <input type="text" class="form-control" id="nomeContato" placeholder="Digite seu nome">
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email" id="alert-name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <i class="fas fa-envelope-square icons"></i><label
+                            for="emailContato">Email<span>*</span></label>
+                        <input type="text" class="form-control" id="emailContato" aria-describedby="emailHelp"
+                            placeholder="Digite seu Email">
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email" id="alert-email">
+                        </div>
+                        <small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar o seu
+                            email com
+                            ninguém</small>
+                    </div>
+
+                    <div class="form-group">
+                        <i class="fas fa-phone-square-alt icons"></i><label for="telContato">Telefone</label>
+                        <input type="text" class="form-control" id="telContato" placeholder="Digite seu telefone">
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email"
+                            id="alert-telefone">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="msgContato">Digite sua mensagem no campo
+                            abaixo<span>*</span></label>
+                        <textarea class="form-control" id="msgContato" rows="5"></textarea>
+                        <div style="visibility: hidden" class="alert alert-danger" role="alert-email"
+                            id="alert-mensagem">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn contato-botao" id="enviar">Enviar</button>
+
+                </form>
+                <div class="mapa">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.1241452609834!2d-46.69399738502288!3d-23.528036884699503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef8775663b04f%3A0x923835e9005f8309!2sSenac%20Lapa%20Tito!5e0!3m2!1spt-BR!2sbr!4v1583944082549!5m2!1spt-BR!2sbr"
+                        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a class="navbar-brand"><img src="img/logo-completa.png" alt="Logo da Smart-Giving"></a>
+        <div class="social-icons">
+            <a href="#" class="btn-facebook"> <i class="fab fa-facebook-square fa-1x"></i> </a>
+            <a href="#" class="btn-twitter"> <i class="fab fa-twitter fa-1x"></i> </a>
+            <a href="#" class="btn-google"> <i class="fab fa-google fa-1x"></i> </a>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

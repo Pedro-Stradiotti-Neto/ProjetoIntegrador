@@ -1,0 +1,45 @@
+main{
+    max-width: 94%;
+    margin: 0 auto;
+    font-family: 'Bellota Text', cursive;
+}
+
+.perfil {
+    margin-top: 28px;
+}
+
+.perfil img {
+    width: 200px;
+    height: 200px;
+}
+
+.perfil div {
+    width: 200px;
+    margin-top: 10px;
+}
+
+.dadosPessoais {
+    width: 800px;
+    margin-left: 100px;
+    border-radius: 8px;
+}
+
+.dadosPessoais h1 {
+    margin-top: 20px;
+}
+
+.dados {
+    padding: 0 20px;
+    box-shadow: 0 0 1px steelblue;
+    border-radius: 4px;
+    padding-top: 15px;
+}
+
+.dados label {
+    font-size: 14px;
+}
+
+.buttons div button {
+    margin-left: 10px;
+    width: 80px;
+}
