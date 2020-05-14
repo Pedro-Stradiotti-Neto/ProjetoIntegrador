@@ -6,6 +6,7 @@ import { PoliticaComponent } from './politica/politica.component';
 import { ContatoComponent } from './contato/contato.component';
 import { FeedComponent } from './feed/feed.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ListagemDeUsuariosComponent } from './listagem-de-usuarios/listagem-de-usuarios.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'politica', component: PoliticaComponent },
   { path: 'contato', component: ContatoComponent },
   { path: 'feed', component: FeedComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile/:id', component: ProfileComponent },
+  { path: 'usuarios', component: ListagemDeUsuariosComponent }
 ];
 
 @NgModule({
