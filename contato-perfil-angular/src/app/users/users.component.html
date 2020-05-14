@@ -1,0 +1,34 @@
+<div class="accordion" id="accordionExample" *ngFor='let user of listUsers'>
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                    [attr.data-target]="'#' + user.nome.slice(0,3)" aria-controls="collapseOne">
+                    {{user.id}} - {{user.nome}} </button>
+            </h2>
+        </div>
+
+        <div id={{user.nome.slice(0,3)}} class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 d-flex justify-content-end">
+                        <span class="text-center text-monospace">E-mail: </span>
+                    </div>
+                    <div class="col-md-9">
+                        <span class="text-center text-monospace">{{user.email}}</span>
+                    </div>
+                </div>
+                <div class=" row">
+                    <div class="col-md-3 d-flex justify-content-end">
+                        <span class="text-center text-monospace">Senha: </span>
+                    </div>
+                    <div class="col-md-9">
+                        <span class="text-center text-monospace">{{user.senha}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-end">
+                        <button class="btn btn-outline-info" [routerLink]="['/profile', user.id]">Editar</button>
+                    </div>
+                </div>
+            </div>

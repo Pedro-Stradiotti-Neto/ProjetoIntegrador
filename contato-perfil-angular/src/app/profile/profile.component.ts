@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../service/user.service';
+import { User } from '../model/User';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -8,10 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   choose: boolean = false;
+  user: User = new User;
 
-  constructor() { }
+  constructor(private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let id = this.route.snapshot.params['id'];
+    this.getUser(id);
     localStorage.setItem('escolha', String(this.choose))
     this.editar();
   }
@@ -32,4 +38,9 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  getUser(id: number) {
+    this.userService.getByIdUser(id).subscribe((resp: User) => {
+      this.user = resp;
+    })
+  }
 }
