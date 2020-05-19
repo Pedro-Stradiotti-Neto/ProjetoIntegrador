@@ -21,4 +21,6 @@ export class UsuarioService {
   cadastrarUsuario(usuario: Usuario) {
     return this.http.post(this.enderecoDoServidor, usuario);
   }
+
+  
 }

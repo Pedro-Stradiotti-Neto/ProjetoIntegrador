@@ -9,7 +9,7 @@ import { Usuario } from '../models/usuario';
 })
 export class CadastroComponent implements OnInit {
 
-  usuario: Usuario;
+  usuario: Usuario = new Usuario;
 
   constructor(private usuarioService: UsuarioService) { }
 
@@ -17,20 +17,22 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar() {
-    let nome: String = (<HTMLSelectElement>document.getElementById('nome')).value;
-    let email: String = (<HTMLSelectElement>document.getElementById('email')).value;
-    let senha: String = (<HTMLSelectElement>document.getElementById('senha')).value;
-    let confirmaSenha: String = (<HTMLSelectElement>document.getElementById('confirmaSenha')).value;
+    let nome: string = (<HTMLSelectElement>document.getElementById('nome')).value;
+    let email: string = (<HTMLSelectElement>document.getElementById('email')).value;
+    let senha: string = (<HTMLSelectElement>document.getElementById('senha')).value;
+    let confirmaSenha: string = (<HTMLSelectElement>document.getElementById('confirmaSenha')).value;
 
     if (this.validar(nome, email, senha, confirmaSenha)) {
+      this.subir();
       alert("Dados enviados com sucesso!");
+      location.assign('/usuarios')
     } else {
       event.preventDefault();
     }
 
   }
 
-  validar(nome: String, email: String, senha: String, confirmaSenha: String) {
+  validar(nome: string, email: string, senha: string, confirmaSenha: string) {
     document.getElementById('alert-nome').style.visibility = "hidden";
     document.getElementById('alert-email').style.visibility = "hidden";
     document.getElementById('alert-senha').style.visibility = "hidden";
@@ -66,7 +68,7 @@ export class CadastroComponent implements OnInit {
       document.getElementById("email").style.border = "1px solid #ced4da";
     }
 
-    if (senha.length < 6) {
+    if (senha.length < 9) {
       document.getElementById('alert-senha').innerHTML = "Senha Fraca";
       document.getElementById('alert-senha').style.visibility = "visible";
       contador++;
