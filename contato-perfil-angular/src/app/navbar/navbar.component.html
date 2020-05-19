@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-warning menu">
+    <div class="container">
+        <a class="navbar-brand h1 mb-0 " routerLink='/home'><img src="../../assets/logo-completa.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+            <span class="navbar-toggler-icon">
+                <fa-icon [icon]='faBars' class="fa mr-2"></fa-icon>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSite">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light " routerLink='/home'>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light " routerLink='/contato'>Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light " routerLink='/faq'>Duvidas</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" routerLink='/usuarios'>Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
