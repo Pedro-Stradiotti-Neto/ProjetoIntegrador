@@ -1,28 +1,28 @@
 <div class="titulo">
-    <h2>Usuários</h2>
+    <h2>Usuarios</h2>
 </div>
 
-<div class="container">
+<div class="container mb-5 mt-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="table-color">
+                <th scope="col">id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Senha</th>
+                <th scope="col" colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuarios of listaUsuarios">
+                <th scope="row">{{ usuarios.id }}</th>
+                <td>{{ usuarios.nome }}</td>
+                <td>{{ usuarios.email }}</td>
+                <td>**********</td>
+                <td><button class="btn btn-editar">EDITAR</button></td>
+                <td><button class="btn btn-excluir">EXCLUIR</button></td>
+            </tr>
+        </tbody>
+    </table>
 
-    <div style="padding-left: 10%;" class="col-md-12 align-items-center">
-        <div class="col-md-12 mb-5 mt-5 d-flex flex-wrap px-2 align-items-center">
-            <div class="card mb-5 mr-4 ml-4" style="width: 25rem;" *ngFor="let usuario of listaUsuarios">
-
-                <div class="card-body " style="text-align: center;">
-                    <h5 class="card-header card-color">nome: {{ usuario.nome }}</h5>
-
-                    <p class="card-text">id: {{ usuario.id }}</p>
-                    <p class="card-text">email: {{ usuario.email }}</p>
-                    <p class="card-text">senha: {{ usuario.senha }}</p>
-                    <button class="mr-3 btn btn-outline-info" href="#">
-                        Editar
-                    </button>
-
-                    <button class="btn btn-outline-danger ml-3" href="#">
-                        Apagar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

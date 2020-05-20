@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../model/Usuario';
+import { ActivatedRoute } from '@angular/router';
+import { ListarService } from '../service/listar.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,12 +12,13 @@ export class ProfileComponent implements OnInit {
 
   choose: boolean = false;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private listarService: ListarService) { }
 
   ngOnInit() {
     localStorage.setItem('escolha', String(this.choose))
     this.editar();
   }
+
 
   editar() {
     let propFieldset = document.querySelector("fieldset");

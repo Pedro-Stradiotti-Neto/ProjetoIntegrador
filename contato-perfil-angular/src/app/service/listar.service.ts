@@ -4,12 +4,13 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosService {
+export class ListarService {
 
   constructor(private http: HttpClient) { }
 
-  getAllUsuario() {
-    return this.http.get("http://93.188.161.223:9000/user")
+
+  getAllUsuarios() {
+    return this.http.get('http://93.188.161.223:9000/user')
   }
 
 }
