@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { UsuarioService } from '../services/usuario.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-listagem-de-usuarios',
@@ -10,8 +11,9 @@ import { UsuarioService } from '../services/usuario.service';
 export class ListagemDeUsuariosComponent implements OnInit {
 
   usuarios: Usuario[];
+  usuario: Usuario = new Usuario;
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.obterTodosOsUsuarios();
@@ -21,5 +23,15 @@ export class ListagemDeUsuariosComponent implements OnInit {
     this.usuarioService.obterTodos().subscribe((resp: Usuario[]) => {
       this.usuarios = resp
     });
+  }
+
+  btnDel(user: Usuario) {
+    this.usuario = user;
+  }
+
+  btnSim() {
+    this.usuarioService.deletarUsuario(this.usuario.id).subscribe(() => {
+      location.assign('/usuarios');
+    })
   }
 }

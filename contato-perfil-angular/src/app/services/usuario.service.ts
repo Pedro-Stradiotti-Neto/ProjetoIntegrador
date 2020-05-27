@@ -14,11 +14,20 @@ export class UsuarioService {
   obterTodos() {
     return this.http.get(this.enderecoDoServidor);
   }
-  obterPorId(id) {
+
+  obterPorId(id: number) {
     return this.http.get(this.enderecoDoServidor + '/' + id);
   }
 
   cadastrarUsuario(usuario: Usuario) {
     return this.http.post(this.enderecoDoServidor, usuario);
+  }
+
+  attDadosUsuario(usuario: Usuario) {
+    return this.http.put(this.enderecoDoServidor, usuario);
+  }
+
+  deletarUsuario(id: number) {
+    return this.http.delete(this.enderecoDoServidor + '/' + id)
   }
 }
