@@ -12,9 +12,10 @@ import { FeedComponent } from './feed/feed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PoliticaComponent } from './politica/politica.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LoginComponent } from './login/login.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ListagemDeUsuariosComponent } from './listagem-de-usuarios/listagem-de-usuarios.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { DeletarUsuarioComponent } from './deletar-usuario/deletar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +28,16 @@ import { HttpClientModule } from '@angular/common/http';
     FeedComponent,
     ProfileComponent,
     PoliticaComponent,
-    LoginComponent,
-    UsuariosComponent
+    ListagemDeUsuariosComponent,
+    DeletarUsuarioComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

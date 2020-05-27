@@ -26,8 +26,7 @@ export class PoliticaComponent implements OnInit {
         });
       });
     })(jQuery);
+
+    window.scroll(0, 0);
   }
-
-
-
 }

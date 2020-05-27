@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../model/Usuario';
-import { ActivatedRoute } from '@angular/router';
-import { ListarService } from '../service/listar.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Usuario } from '../models/usuario';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,15 +10,24 @@ import { ListarService } from '../service/listar.service';
 })
 export class ProfileComponent implements OnInit {
 
+  usuario: Usuario;
   choose: boolean = false;
 
-  constructor(private route: ActivatedRoute, private listarService: ListarService) { }
+  constructor(private route: ActivatedRoute,
+    private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit() {
+    this.obterUsuarioPorId(this.route.snapshot.params['id']);
+
     localStorage.setItem('escolha', String(this.choose))
     this.editar();
   }
 
+  obterUsuarioPorId(id: number) {
+    this.usuarioService.obterPorId(id).subscribe((resp: Usuario) => {
+      this.usuario = resp
+    })
+  }
 
   editar() {
     let propFieldset = document.querySelector("fieldset");
@@ -34,6 +43,14 @@ export class ProfileComponent implements OnInit {
       propEdit.disabled = true;
       localStorage.setItem('escolha', 'true');
     }
+  }
+
+  salvar() {
+    this.usuarioService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
+      this.usuario = resp
+      this.router.navigate(['/usuarios']);
+      location.assign('/usuarios');
+    })
   }
 
 }
