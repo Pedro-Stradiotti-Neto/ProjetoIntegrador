@@ -17,6 +17,14 @@ export class ListagemDeUsuariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.obterTodosOsUsuarios();
+
+    let item: string = localStorage.getItem('delOk');
+
+    if (item == "true") {
+      alert('Usuário Deletado com sucesso')
+      localStorage.clear();
+    }
+    window.scroll(0, 0);
   }
 
   obterTodosOsUsuarios() {
@@ -32,6 +40,7 @@ export class ListagemDeUsuariosComponent implements OnInit {
   btnSim() {
     this.usuarioService.deletarUsuario(this.usuario.id).subscribe(() => {
       location.assign('/usuarios');
+      localStorage.setItem('delOk', 'true')
     })
   }
 }

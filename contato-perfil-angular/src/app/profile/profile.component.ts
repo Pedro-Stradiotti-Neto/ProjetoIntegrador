@@ -59,7 +59,8 @@ export class ProfileComponent implements OnInit {
 
   btnSim() {
     this.usuarioService.deletarUsuario(this.usuario.id).subscribe(() => {
-      this.router.navigate(['/usuarios'])
+      localStorage.setItem('delOk', 'true')
+      this.router.navigate(['/usuarios']);
     })
   }
 }
