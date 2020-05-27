@@ -1,0 +1,48 @@
+<main class="d-flex justify-content-start">
+    <div class="d-flex flex-column perfil ml-4">
+        <img src="../../assets/avatar.png" alt="Imagem Pessoal" class="img-thumbnail">
+        <div class="btn-group-vertical">
+            <button type="button" class="btn btn-light">Perfil</button>
+            <button type="button" class="btn btn-light">Doacão de Roupas</button>
+            <button type="button" class="btn btn-light">Sair</button>
+        </div>
+    </div>
+
+    <div class="dadosPessoais">
+        <h1 class="text-center">Dados Pessoais</h1>
+        <form class="mt-4">
+            <fieldset disabled>
+                <div class="dados">
+                    <div class="form-group row">
+                        <label for="nomePerfil" class="col-sm-2 col-form-label">Nome</label>
+                        <div class="col-sm-10">
+                            <input type="text" [(ngModel)]="usuario.nome" class="form-control" id="nomePerfil"
+                                name="nome">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="emailPerfil" class="col-sm-2 col-form-label">E-mail</label>
+                        <div class="col-sm-10">
+                            <input type="email" [(ngModel)]="usuario.email" class="form-control" id="emailPerfil"
+                                name="email">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="telPerfil" class="col-sm-2 col-form-label">Telefone</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="telPerfil">
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <div class="form-group row buttons">
+                <div class="col-sm-12 d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary" id="edit" (click)='editar()'>Editar</button>
+                    <button disabled type="submit" class="btn btn-primary" id="save" (click)='salvar()'>Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>

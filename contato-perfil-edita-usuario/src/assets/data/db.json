@@ -1,0 +1,19 @@
+{
+  "Postagem": [
+    {
+      "id": 1,
+      "titulo": "Postagem",
+      "texto": "Teste postagem"
+    },
+    {
+      "titulo": "sdsad",
+      "texto": "asdsad",
+      "id": 2
+    },
+    {
+      "titulo": "asdsdasdsadsad",
+      "texto": "123456",
+      "id": 3
+    }
+  ]
+}
