@@ -17,6 +17,10 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { DeleteUsuarioComponent } from './delete-usuario/delete-usuario.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { DeletarComponent } from './deletar/deletar.component';
+import { EditarComponent } from './editar/editar.component';
+import { AboutComponent } from './about/about.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
     CadastrarComponent,
     DeleteUsuarioComponent,
     EditarUsuarioComponent,
+    DeletarComponent,
+    EditarComponent,
+    AboutComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
