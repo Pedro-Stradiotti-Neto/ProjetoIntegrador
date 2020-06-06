@@ -13,8 +13,8 @@ export class PoliticaComponent implements OnInit {
   ngOnInit(): void {
     (function ($) {
       $(document).ready(function () {
-        var elementPosition = $('#menuLateral').offset();
-        var tamanho = $('#menuLateral').width();
+        var elementPosition = $('#menuLateral').offset(); // Traz a posicão do elemento na página.
+        var tamanho = $('#menuLateral').width();          // Pega a largura do elemento
 
         $(window).scroll(function () {
           if ($(window).scrollTop() > elementPosition.top) {

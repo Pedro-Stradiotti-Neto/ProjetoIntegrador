@@ -8,6 +8,7 @@ import { UsuarioService } from '../services/usuario.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent implements OnInit {
 
   usuario: Usuario = new Usuario;
