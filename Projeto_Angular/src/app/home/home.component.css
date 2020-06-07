@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Bellota+Text&display=swap');
+
+body{
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    margin: 0;
+    
+}
+
+.navbar {
+    font-size: 20px;
+    
+}
+
+.menu{
+    background-color: #183059;
+}
+
+.menu > li > a{
+    background-color: #183059;
+}
+
+.hamburger{
+    font-size: 30px;
+    color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white !important;
+}
+
+.btn{
+    font-size: 20px;
+}
+
+
+#topo .container{
+    
+    box-shadow: 10px 10px 10px  #183059 ; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));
+   
+}
+
+#topo img{
+    margin-right: 10px;
+}
+
+#topo h1{
+    margin-top: 200px;
+    margin-left: 30px;
+    
+}
+
+#topo p{
+    margin-left: 30px;
+}
+
+#sobre{
+    background: #183059;
+    color: white;
+    margin-top: 200px; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));
+}
+
+
+#sobre p{  
+    font-size: 1.2em;     
+}
+
+#doacao{
+    background: #183059;
+    color: white;
+    margin-bottom: 250px;    
+}
+
+#doacao .rounded-circle{
+    align-items: center;
+    margin-top: 50px;
+}
+
+
+#doacao .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));
+}
+
+
+#parallax-image{
+    background-image: url("../../assets/roupas.png");
+    height: 400px;
+    margin: 50px 0 300px 0;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+    overflow: hidden;  
+}
+
+/* Cards com fotos dos idealizadores */
+
+.fundadores {
+    background-color: #3973d8;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px 0;
+    margin: 50px 0;
+}
+
+.nameFund {
+    color: #fff;
+    border-bottom: solid 1px #183059;
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+/* ------- */
+
+@media screen and (max-width:1187px) {
+    #topo .container{
+        /* border: blue solid 2px;   */
+        display: grid;
+        grid-template-columns: 1fr;   
+    } 
+}
+
+@media screen and (max-width: 425px){
+    #topo .container{
+        box-shadow: 10px  #183059;
+    }
+    #topo img{
+        width: 400px;
+        height: 400px;
+    }
+
+    #topo h1{
+        margin: 30px 0 30px 0;
+    }
+
+    #topo p{
+        margin: 0 0 30px 0;
+    }
+}
+
+@media screen and (max-width: 375px){
+
+    #topo .container{
+        margin: 0;
+        box-shadow: none;
+    }
+    #topo img{
+        width: 300px;
+        height: 300px;
+    }   
+}
