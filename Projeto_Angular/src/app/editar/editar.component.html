@@ -15,27 +15,26 @@
             </div>
 
             <div class="container">
+
                 <div class="row">
+
                     <div class="col-md-4 mb-5">
                         <div class="card border-0 bg-light" style="width: 18rem;">
                             <div class="card-body">
                                 <h2 class="card-title text-center font-weight-bolder">Nome</h2>
-                                <a class="btn btn-editar d-flex justify-content-center mb-3">PERFIL</a>
-                                <a class="btn btn-button d-flex justify-content-center" routerLink='/doacao'>DOAÇÃO</a>
-                                <!-- target="_blank" -->
-                                <hr class="mt-4 mb-4">
-
-                                <h6 class="mb-3 text-center">Pesquisar por titulo</h6>
-
-                                <input type="text" class="form-control mb-3 w-100" placeholder="Pesquisar postagem">
-
-                                <button class="btn btn-pesquisa w-100">PESQUISA</button>
+                                <a class="btn btn-editar d-flex justify-content-center mb-2">VISUALIZAR PERFIL</a>
+                                <a class="btn btn-excluir d-flex justify-content-center mb-2" data-toggle="modal"
+                                    data-target="#deletePostagem">EXCLUIR</a>
+                                <a class="btn btn-voltar d-flex justify-content-center mb-2"
+                                    routerLink='/feed'>VOLTAR</a>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-8 mb-5">
+
                         <div>
-                            <h3 class="text-center mb-4">No que está pensando?</h3>
+                            <h2 class="text-center mb-4 font-weight-bolder">Edição</h2>
 
                             <div class="form-group">
 
@@ -51,52 +50,16 @@
                             </div>
 
                             <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-button w-25" (click)="publicar()">PUBLICAR</button>
+                                <button type="button" class="btn btn-salvar w-25" (click)="salvar()">SALVAR</button>
                             </div>
 
                         </div>
 
-                        <hr class="mt-5 mb-5">
-
-                        <h3 class="text-center mb-5">Meus Posts</h3>
-
-                        <!-- <div class="card mb-4" *ngFor="let postagem of listaPostagens | orderBy : key : reverse"> -->
-                        <div class="card mb-4">
-                            <div class="card-header bg-white">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <img src="../../assets/homem.jpg" alt="Circle Image"
-                                                class="ml-2 rounded img-size">
-                                            <h6 class="font-weight-bolder ml-2">Nome</h6>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4 d-flex justify-content-end">
-                                        <button class="btn btn-editar" [routerLink]="['/editar', postagem.id]">
-                                            EDITAR
-                                        </button>
-                                        <button class="btn btn-excluir ml-2" data-toggle="modal"
-                                            data-target="#deletePostagem"
-                                            (click)="btnExcluir(postagem)">EXCLUIR</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card-body">
-                                <h5 class="font-weight-bolder">Titulo</h5>
-                                <p class="card-text">Texto</p>
-                                <!-- <h5 class="font-weight-bolder">{{ postagem.titulo }}</h5>
-                                <p class="card-text">{{ postagem.texto }}</p>
-                                <small class="form-text m-0 text-muted mb-3">
-                                    Postado em {{ postagem.data | date: 'dd/MM/yyyy' }}
-                                    às {{ postagem.data | date: 'HH:mm' }}
-                                </small> -->
-                            </div>
-                        </div>
                     </div>
+
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -128,11 +91,11 @@
                             <h5 class="font-weight-bolder">Titulo</h5>
                             <p class="card-text">Texto</p>
                             <!-- <h5 class="font-weight-bolder">{{ postagem.titulo }}</h5>
-                            <p class="card-text">{{ postagem.texto }}</p>
-                            <small class="form-text m-0 text-muted mb-3">
-                                Postado em {{ postagem.data | date: 'dd/MM/yyyy' }}
-                                às {{ postagem.data | date: 'HH:mm' }}
-                            </small> -->
+                        <p class="card-text">{{ postagem.texto }}</p>
+                        <small class="form-text m-0 text-muted mb-3">
+                            Postado em {{ postagem.data | date: 'dd/MM/yyyy' }}
+                            às {{ postagem.data | date: 'HH:mm' }}
+                        </small> -->
                         </div>
                     </div>
                 </div>
@@ -145,4 +108,5 @@
             </div>
         </div>
     </div>
+
 </body>

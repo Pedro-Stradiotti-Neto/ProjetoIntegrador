@@ -8,6 +8,8 @@ import { FeedComponent } from './feed/feed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ListagemDeUsuariosComponent } from './listagem-de-usuarios/listagem-de-usuarios.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { DoacaoComponent } from './doacao/doacao.component';
+import { EditarComponent } from './editar/editar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'feed', component: FeedComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'usuarios', component: ListagemDeUsuariosComponent },
+  { path: 'doacao', component: DoacaoComponent },
+  { path: 'editar/:id', component: EditarComponent },
   { path: '**', component: PagenotfoundComponent }
 ];
 

@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { PostagemService } from '../services/postagem.service';
 import { Postagem } from '../models/Postagem';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-feed',
-  templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.css']
+  selector: 'app-editar',
+  templateUrl: './editar.component.html',
+  styleUrls: ['./editar.component.css']
 })
-export class FeedComponent implements OnInit {
-
-  key = 'data'
-  reverse = true
-
-  listaPostagens: Postagem[]
+export class EditarComponent implements OnInit {
 
   postagem: Postagem = new Postagem
 
-  constructor(private postagemService: PostagemService) { }
+  constructor(private postagemService: PostagemService, private route: ActivatedRoute,
+    private router: Router) { }
 
-  ngOnInit() {
-    this.findAllPostagens()
+  ngOnInit(): void {
+
+    var id = this.route.snapshot.params['id']
+    this.findById(id)
 
     let post: string = localStorage.getItem('excluido');
 
@@ -31,17 +30,18 @@ export class FeedComponent implements OnInit {
 
   }
 
-  findAllPostagens() {
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
-      this.listaPostagens = resp
+  findById(id: number) {
+    this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem) => {
+      this.postagem = resp
     })
   }
 
-  publicar() {
-    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+  salvar() {
+    this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
+      this.router.navigate(['/feed'])
       location.assign('/feed')
-    });
+    })
   }
 
   btnExcluir(postagem: Postagem) {

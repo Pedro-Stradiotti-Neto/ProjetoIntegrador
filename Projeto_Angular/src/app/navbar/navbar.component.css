@@ -15,8 +15,8 @@
     color: white;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: white !important;
+.navbar-toggle-icon {
+    color: #fff;
 }
 
 .btn{

@@ -112,13 +112,13 @@ img.rounded {
     border-color: #183059;
 }
 
-.btn-pesquisa {
+.btn-pesquisa, .btn-voltar{
     color: #ffffff;
     font-weight: bolder;
     background-color: goldenrod;
 }
 
-.btn-pesquisa:hover {
+.btn-pesquisa:hover, .btn-voltar:hover {
     color: goldenrod;
     font-weight: bolder;
     background-color: #ffffff;
@@ -128,19 +128,6 @@ img.rounded {
 .img-size {
     width: 30px;
     height: 30px;
-}
-
-.btn-editar {
-    color: #ffffff;
-    font-weight: bolder;
-    background-color: cornflowerblue;
-}
-
-.btn-editar:hover {
-    color: cornflowerblue;
-    font-weight: bolder;
-    background-color: #ffffff;
-    border-color: cornflowerblue;
 }
 
 .btn-excluir {
@@ -154,4 +141,30 @@ img.rounded {
     font-weight: bolder;
     background-color: #ffffff;
     border-color: red;
+}
+
+.btn-salvar {
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: green;
+}
+
+.btn-salvar:hover {
+    color: green;
+    font-weight: bolder;
+    background-color: #ffffff;
+    border-color: green;
+}
+
+.btn-editar {
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: cornflowerblue;
+}
+
+.btn-editar:hover {
+    color: cornflowerblue;
+    font-weight: bolder;
+    background-color: #ffffff;
+    border-color: cornflowerblue;
 }

@@ -35,6 +35,8 @@ body{
 }
 
 
+
+
 #topo .container{
     
     box-shadow: 10px 10px 10px  #183059 ; 
@@ -73,7 +75,7 @@ body{
 #doacao{
     background: #183059;
     color: white;
-    margin-bottom: 250px;    
+       
 }
 
 #doacao .rounded-circle{
@@ -91,7 +93,7 @@ body{
 #parallax-image{
     background-image: url("../../assets/roupas.png");
     height: 400px;
-    margin: 50px 0 300px 0;
+    margin: 50px 0 100px 0;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -101,13 +103,21 @@ body{
 
 /* Cards com fotos dos idealizadores */
 
+.carouselActive1 {
+    display: block;
+}
+
+.carouselActive2 {
+    display: none;
+}
+
 .fundadores {
-    background-color: #3973d8;
+    background-image: url("../../assets/fundo.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px 0;
-    margin: 50px 0;
+    margin: 100px 0;
 }
 
 .nameFund {
@@ -115,6 +125,21 @@ body{
     border-bottom: solid 1px #183059;
     padding-bottom: 5px;
     margin-top: 30px;
+}
+
+#parceiro img{
+ width: 300px;
+ height: 300px;
+ margin-left: 60px;
+}
+
+.testando{
+    color: #183059;
+}
+
+.testando:hover{
+    background-color: #183059;
+    color: #fff;
 }
 
 /* ------- */
@@ -125,6 +150,16 @@ body{
         display: grid;
         grid-template-columns: 1fr;   
     } 
+}
+
+@media screen and (max-width:991px) {
+    .carouselActive1 {
+        display: none;
+    }
+    
+    .carouselActive2 {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 425px){

@@ -16,6 +16,8 @@ import { ListagemDeUsuariosComponent } from './listagem-de-usuarios/listagem-de-
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { DoacaoComponent } from './doacao/doacao.component';
+import { EditarComponent } from './editar/editar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     ProfileComponent,
     PoliticaComponent,
     ListagemDeUsuariosComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    DoacaoComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,
