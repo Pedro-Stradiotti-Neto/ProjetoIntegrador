@@ -74,13 +74,15 @@
                     <div class="form-group row">
                         <label for="sexPerfil" class="col-sm-2 col-form-label">Sexo</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="sexPerfil">
+                            <input type="text" [(ngModel)]="usuario.sexo" class="form-control" id="sexPerfil"
+                                name="sexo">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="dataPerfil" class="col-sm-2 col-form-label">Data de Nascimento</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="dataPerfil">
+                            <input type="text" [(ngModel)]="usuario.data" class="form-control" id="dataPerfil"
+                                name="data">
                         </div>
                     </div>
                 </div>

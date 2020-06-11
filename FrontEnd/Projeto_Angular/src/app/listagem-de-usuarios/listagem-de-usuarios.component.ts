@@ -38,7 +38,7 @@ export class ListagemDeUsuariosComponent implements OnInit {
   }
 
   btnSim() {
-    this.usuarioService.deletarUsuario(this.usuario.id).subscribe(() => {
+    this.usuarioService.deletarUsuario(this.usuario.codigo).subscribe(() => {
       location.assign('/usuarios');
       localStorage.setItem('delOk', 'true')
     })

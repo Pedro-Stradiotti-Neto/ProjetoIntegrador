@@ -7,7 +7,7 @@ import { Usuario } from '../models/usuario';
 })
 export class UsuarioService {
 
-  enderecoDoServidor = 'http://93.188.161.223:9000/user';
+  enderecoDoServidor = 'http://localhost:8080/usuarios';
 
   constructor(private http: HttpClient) { }
 
