@@ -1,0 +1,81 @@
+body {
+  margin: 5px 5px 5px 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #000000;
+}
+ 
+.galeria {
+  width: 75%;
+  margin: auto;
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imagem {
+  width: calc(33% - 6px);
+  overflow: hidden;
+  height: auto;
+  margin: 3px;   
+  padding: 0;
+  display: block;
+  position: relative;
+}
+
+section.imagem > img {
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  display: block;
+  transition: .5s;
+}
+
+.imagem:hover img {
+  transform: scale(1.2);
+  transition: .5s;
+  filter: grayscale(80%);
+  opacity: .7;
+}
+
+.imagem:hover span{
+  display: block;
+  color: #ffffff;
+  transition: .5s;
+}
+
+.btn-button {
+  color: #ffffff;
+  font-weight: bolder;
+  background-color: #183059;    
+}
+
+.btn-button:hover {
+  color: #183059;
+  font-weight: bolder;
+  background-color: #ffffff; 
+  border-color: #183059;
+}
+
+.doacao {
+  background-color: #183059; 
+  color: #ffffff;
+}
+
+.btn-doar {
+  color: #183059;
+  font-weight: bolder;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn-doar:hover {
+  color: #ffffff;
+  font-weight: bolder;
+  background-color: #183059;
+  border-color: #ffffff;
+}
