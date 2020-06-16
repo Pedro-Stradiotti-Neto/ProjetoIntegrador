@@ -1,0 +1,110 @@
+<div class="container">
+
+    <h4 class="p-5">Listagem de Dados</h4>
+
+    <nav class="row d-flex justify-content-center">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-user-tab" data-toggle="tab" href="#nav-user" role="tab"
+                aria-controls="nav-user" aria-selected="true">
+                <h4 class="tituloTab">Usuários Cadastrados</h4>
+            </a>
+            <a class="nav-item nav-link" id="nav-endereco-tab" data-toggle="tab" href="#nav-endereco" role="tab"
+                aria-controls="nav-endereco" aria-selected="false">
+                <h4 class="tituloTab">Enderecos dos Parceiros</h4>
+            </a>
+            <a class="nav-item nav-link" id="nav-doacao-tab" data-toggle="tab" href="#nav-doacao" role="tab"
+                aria-controls="nav-doacao" aria-selected="false">
+                <h4 class="tituloTab">Cupons de Desconto</h4>
+            </a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Senha</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuarios">
+                        <th scope="row">{{usuario.codigo}}</th>
+                        <td>{{usuario.nome}}</td>
+                        <td>{{usuario.email}}</td>
+                        <td>*********</td>
+                        <td><button class="btn btn-outline-warning" (click)="btnUsuario(usuario)">
+                                Editar
+                            </button></td>
+                        <td>
+                            <button class="btn btn-outline-danger" data-toggle="modal" data-target="#delUsuario"
+                                (click)="btnUsuario(usuario)">
+                                Excluir
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="nav-endereco" role="tabpanel" aria-labelledby="nav-endereco-tab">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Parceiro</th>
+                        <th scope="col">Endereco</th>
+                        <th scope="col">Total Doado</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let endereco of enderecos">
+                        <th scope="row">{{endereco.codigo}}</th>
+                        <td>{{endereco.parceiro}}</td>
+                        <td>{{endereco.endereco}}</td>
+                        <td>{{endereco.totalDoado}}</td>
+                        <td><button class="btn btn-outline-warning" data-toggle="modal" data-target="#delEndereco"
+                                (click)="btnEndereco(endereco)">
+                                Editar
+                            </button></td>
+                        <td>
+                            <button class="btn btn-outline-danger" (click)="btnEndereco(endereco)">
+                                Excluir
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="nav-doacao" role="tabpanel" aria-labelledby="nav-doacao-tab">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Endereco</th>
+                        <th scope="col">Data de Doacao</th>
+                        <th scope="col">Usado</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let doacao of doacoes">
+                        <th scope="row">{{doacao.codigo}}</th>
+                        <td>{{doacao.endereco}}</td>
+                        <td>{{doacao.data | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{doacao.cupom == 'true' ? 'Usado' : 'Não Usado'}}</td>
+                        <td><button class="btn btn-outline-warning" (click)="btnDoacao(doacao)">
+                                Editar
+                            </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <app-modals-listagem [usuario]='usuario' [endereco]='endereco' [doacao]='doacao'></app-modals-listagem>
+</div>

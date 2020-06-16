@@ -1,0 +1,71 @@
+.navbar {
+    font-size: 24px;
+    max-width: 100%;
+}
+
+.navbar-nav li a {
+    margin-left: 7em;
+}
+
+.menu{
+    background-color: #183059;
+}
+
+.menu > li > a{
+    background-color: #183059;
+}
+
+.hamburger{
+    font-size: 30px;
+    color: white;
+}
+
+.navbar-toggle-icon {
+    color: #fff;
+}
+
+.btn{
+    font-size: 20px;
+}
+
+.loginButton {
+    cursor: pointer;
+}
+
+.loginIn {
+    display: block;
+}
+
+.loginOut {
+    display: none;
+}
+
+.tabsList {
+    background-color: #d3d3d3;
+}
+
+.logoLogin {
+    background-color: #183059;
+}
+
+@media screen and (max-width: 1090px){
+    .navbar {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 1030px){
+    .navbar {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .navbar {
+        font-size: 22px;
+    }
+
+    .navbar-nav li a {
+        margin-left: 0;
+    }
+}
