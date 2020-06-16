@@ -1,0 +1,54 @@
+.btn-enviar {
+    font-weight: bolder;
+    background-color: #ffffff;
+    color: #183059;   
+    border-color: #183059;
+}
+
+.btn-enviar:hover {
+    font-weight: bolder;
+    background-color: #183059;
+    color: #ffffff;   
+}
+
+@media screen and (max-width: 1440px) {
+    iframe {
+        width: 490px;
+    }   
+}
+
+@media screen and (max-width: 1024px) {
+    iframe {
+        width: 340px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    iframe {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    iframe {
+        width: 380px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    iframe {
+        width: 380px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    iframe {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    iframe {
+        width: 300px;
+    }
+}
