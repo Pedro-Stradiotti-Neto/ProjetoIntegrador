@@ -1,52 +1,4 @@
-body {
-  margin: 5px 5px 5px 10px;
-  font-family: 'Poppins', sans-serif;
-}
 
-h1 {
-  text-align: center;
-  color: #000000;
-}
- 
-.galeria {
-  width: 75%;
-  margin: auto;
-  overflow: hidden;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.imagem {
-  width: calc(33% - 6px);
-  overflow: hidden;
-  height: auto;
-  margin: 3px;   
-  padding: 0;
-  display: block;
-  position: relative;
-}
-
-section.imagem > img {
-  width: 100%;
-  cursor: pointer;
-  overflow: hidden;
-  display: block;
-  transition: .5s;
-}
-
-.imagem:hover img {
-  transform: scale(1.2);
-  transition: .5s;
-  filter: grayscale(80%);
-  opacity: .7;
-}
-
-.imagem:hover span{
-  display: block;
-  color: #ffffff;
-  transition: .5s;
-}
 
 .btn-button {
   color: #ffffff;
@@ -64,6 +16,9 @@ section.imagem > img {
 .doacao {
   background-color: #183059; 
   color: #ffffff;
+  margin: 0 auto 70px;
+  width: 90%;
+  max-width: 500px;
 }
 
 .btn-doar {
@@ -78,4 +33,64 @@ section.imagem > img {
   font-weight: bolder;
   background-color: #183059;
   border-color: #ffffff;
+}
+
+
+.gallery-section{
+  width: 100%;
+  padding: 60px 0;
+
+}
+
+.inner-width{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.gallery-section h1{
+  text-align: center;
+  color: #333;
+  margin: 30px;
+}
+
+.gallery-section .gallery{
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+}
+
+.gallery-section .image{
+  flex: 25%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-section .image img{
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+}
+
+.gallery-section .image:hover img{
+  transform: scale(1.4) rotate(15deg);
+}
+
+@media screen and (max-width:960px) {
+  .gallery-section .image{
+    flex: 33.33%;
+  }
+}
+
+@media screen and (max-width:959px) {
+  .gallery-section .image{
+    flex: 50%;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .gallery-section .image{
+    flex: 100%;
+  }
 }

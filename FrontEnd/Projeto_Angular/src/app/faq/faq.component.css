@@ -1,79 +1,66 @@
+.titulo {
+    background-color: #183059;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.titulo-principal {
+    color: #ffffff;   
+}
+
+.titulo-secundario {
+    color: #54A4D6;
+}
+
 .collapse-backgroundColor {
     background-color: #183059;   
     font-weight: bolder;
-    color: #ffffff;    
 }
 
-.btn-button {
+.color-link {
     color: #ffffff;
     font-weight: bolder;    
 }
 
-.btn-button:hover {
-    color: #ffffff;
-    font-weight: bolder; 
-    text-decoration: none;   
-}
-
-.titulo {
-    max-width: 100%;
-    height: 450px;
-    background-color: #183059;    
-    padding-top: 225px;
-    padding-left: 50px;
-}
-
-h1 {
-    color: #fff;
-    font-weight: bolder;
-    font-size: 3.5em;    
-}
-
-h2 {
-    color: #54A4D6;
-    font-weight: bolder;
-    font-size: 3em;
-}
-
 .btnHome {
-    background-color: #183059;   
-    font-weight: bolder;
-    color: #ffffff;    
-}
-
-.btnHome:hover {
     background-color: #ffffff;
-    font-weight: bolder;
     color: #183059;
+    font-weight: bolder;
     border-color: #183059;
 }
 
-@media screen and (max-width: 360px) {
-    h1 {
-        font-size: 29px;
-    }
+.btnHome:hover {
+    background-color: #183059;
+    color: #ffffff;
+    font-weight: bolder;
+}
 
-    h2 {
-        font-size: 25px;
+@media screen and (max-width: 414px) {
+    .titulo-principal {
+        font-size: 39px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    .titulo-principal {
+        font-size: 38px;
     }
 }
 
 @media screen and (max-width: 375px) {
-    h1 {
-        font-size: 30px;
-    }
-
-    h2 {
-        font-size: 26px;
+    .titulo-principal {
+        font-size: 35px;
     }
 }
 
-@media screen and (max-width: 414px) {
-    h1 {
-        font-size: 32px;
+@media screen and (max-width: 360px) {
+    .titulo-principal {
+        font-size: 33px;
     }
+}
 
-    h2 {
-        font-size: 27px;
+@media screen and (max-width: 320px) {
+    .titulo-principal {
+        font-size: 29px;
     }
 }

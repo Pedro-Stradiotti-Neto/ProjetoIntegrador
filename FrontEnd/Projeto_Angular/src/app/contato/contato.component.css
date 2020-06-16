@@ -30,18 +30,21 @@ span{
     font-size: 20px;
 }
 
-.contato-botao{
-    background-color: #183059;
-    color: white;
-}
-
-.contato-botao:hover{
-    color: white;
-    font-weight: bold;
-}
-
 .mapa{
     margin-top: -20px;
+}
+
+.btn-enviar {
+    font-weight: bolder;
+    background-color: #ffffff;
+    color: #183059;   
+    border-color: #183059;
+}
+
+.btn-enviar:hover {
+    font-weight: bolder;
+    background-color: #183059;
+    color: #ffffff;   
 }
 
 @media screen and (max-width:1372px){

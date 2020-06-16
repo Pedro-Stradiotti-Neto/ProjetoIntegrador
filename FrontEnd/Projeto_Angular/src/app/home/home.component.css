@@ -34,25 +34,21 @@ body{
     font-size: 20px;
 }
 
-
-
-
-#topo .container{
-    
+#topo .container{   
     box-shadow: 10px 10px 10px  #183059 ; 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));
-   
+    grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));  
 }
 
 #topo img{
-    margin-right: 10px;
+    margin-right: -20px;
+    width: 450px;
+    height: 400px;
 }
 
 #topo h1{
-    margin-top: 200px;
-    margin-left: 30px;
-    
+    margin-top: 100px;
+    margin-left: 30px;   
 }
 
 #topo p{
@@ -62,7 +58,7 @@ body{
 #sobre{
     background: #183059;
     color: white;
-    margin-top: 200px; 
+    margin-top: 50px; 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));
 }
@@ -74,13 +70,13 @@ body{
 
 #doacao{
     background: #183059;
-    color: white;
-       
+    color: white;    
 }
 
 #doacao .rounded-circle{
     align-items: center;
     margin-top: 50px;
+    margin-left: 90px;
 }
 
 
@@ -93,7 +89,7 @@ body{
 #parallax-image{
     background-image: url("../../assets/roupas.png");
     height: 400px;
-    margin: 50px 0 100px 0;
+    margin: 20px 0 50px 0;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -103,15 +99,9 @@ body{
 
 /* Cards com fotos dos idealizadores */
 
-.carouselActive1 {
-    display: block;
-}
 
-.carouselActive2 {
-    display: none;
-}
 
-.fundadores {
+#fundadores {
     background-image: url("../../assets/fundo.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -120,17 +110,48 @@ body{
     margin: 100px 0;
 }
 
+#fundadores a{
+    opacity: 0;
+}
+
+#fundadores img{
+    width: 200px;
+    height: 200px;
+}
+
+.carouselActive1 {
+    display: block;
+}
+
+.carouselActive2 {
+    display: none;
+}
+
+.carouselActive2 a{
+    opacity: 0;
+}
+
 .nameFund {
     color: #fff;
-    border-bottom: solid 1px #183059;
+    border-bottom: solid 1px #fff;
     padding-bottom: 5px;
     margin-top: 30px;
 }
 
+
+
+#parceiro .logoParceiro{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+    
+}
+
 #parceiro img{
- width: 300px;
- height: 300px;
- margin-left: 60px;
+ width:  100px;
+ height: 100px;
+ margin: 50px 0 30px 140px; 
+
 }
 
 .testando{
@@ -144,15 +165,22 @@ body{
 
 /* ------- */
 
-@media screen and (max-width:1187px) {
-    #topo .container{
-        /* border: blue solid 2px;   */
-        display: grid;
-        grid-template-columns: 1fr;   
-    } 
+@media screen and (max-width: 1199px){
+    #parceiro .logoParceiro{
+        margin-left: -75px;
+    }
 }
 
-@media screen and (max-width:991px) {
+@media screen and (max-width: 991px){
+    #topo img{
+        width: 350px;
+        height: 350px;
+    }
+
+    #parceiro .logoParceiro{
+        margin-left: -200px;
+    }
+
     .carouselActive1 {
         display: none;
     }
@@ -160,34 +188,206 @@ body{
     .carouselActive2 {
         display: block;
     }
+
+    
 }
 
-@media screen and (max-width: 425px){
-    #topo .container{
-        box-shadow: 10px  #183059;
+@media screen and (max-width: 882px){
+    #parceiro .logoParceiro{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left: -60px;
     }
+}
+
+@media screen and (max-width: 767px){
+    #topo h1 {
+        margin-top: 15px;
+    }
+    
     #topo img{
-        width: 400px;
-        height: 400px;
+        margin-left: 80px;
     }
 
-    #topo h1{
-        margin: 30px 0 30px 0;
+    #parceiro .logoParceiro{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left: -150px;
     }
 
-    #topo p{
-        margin: 0 0 30px 0;
-    }
+    
+
 }
 
-@media screen and (max-width: 375px){
+@media screen and (max-width: 659px){  
+    #parceiro .logoParceiro{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left: -130px;
+    }
 
+    #parceiro img{
+        width: 80px;
+        height: 80px;
+    }
+
+}
+
+@media screen and (max-width: 576px){  
     #topo .container{
-        margin: 0;
         box-shadow: none;
     }
+    
     #topo img{
         width: 300px;
         height: 300px;
-    }   
+        margin-left: 100px;
+    }
+    
+    #parceiro .logoParceiro{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left: -130px;
+    }
+
+    #parceiro img{
+        width: 80px;
+        height: 80px;
+    }
+
 }
+
+@media screen and (max-width: 538px){  
+    #parceiro .logoParceiro{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left: -90px;
+    }
+
+    #parceiro img{
+        width: 50px;
+        height: 50px;
+    }
+
+}
+
+@media screen and (max-width: 526px){  
+    #parceiro .logoParceiro{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-left: 0px;
+    }
+
+    #parceiro img{
+        width: 50px;
+        height: 50px;
+    }
+
+}
+
+
+@media screen and (max-width: 425px){  
+    #topo .bemVindo{
+        margin-left: -15px;
+    }
+    
+    #topo img{
+        margin-left: 60px;
+    }
+    
+    #parceiro .logoParceiro{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-left: -50px;
+    }
+
+    #parceiro img{
+        width: 50px;
+        height: 50px;
+    }
+
+}
+
+@media screen and (max-width: 375px){  
+    #topo .bemVindo{
+        margin-left: -10px;
+    }
+    
+    #topo img{
+        margin-left: 20px;
+    }
+    
+    #parceiro .logoParceiro{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-left: -80px;
+    }
+
+    #parceiro img{
+        width: 50px;
+        height: 50px;
+    }
+
+}
+
+@media screen and (max-width: 320px){  
+   *{
+       max-width: 320px;
+   }
+   
+    h1{
+       font-size: 30px;
+   }
+
+   h2{
+       font-size: 25px;
+   }
+
+   h3{
+       font-size: 20px;
+   }
+
+   p{
+       font-size: 15px;
+       max-width: 300px;
+   }
+   
+    #topo .bemVindo{
+        margin-left: -10px;
+        
+    }
+
+    #topo p{
+        margin-left: 8px;
+    }
+
+    
+    
+    #topo img{
+        margin: 20px 50px 10px ;
+        width: 180px;
+        height: 180px;
+    }
+    
+    #parceiro .logoParceiro{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-left: -90px;
+    }
+
+    #parceiro img{
+        width: 50px;
+        height: 50px;
+    }
+
+    #parceiro button{
+        width: 180px;
+        height: 50px;
+        font-size: 15px;
+    }
+
+}
+
+
+
+

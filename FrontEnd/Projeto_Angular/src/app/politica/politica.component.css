@@ -3,45 +3,74 @@
     color: #fff;
 }
 #introducao h1 {
-    font-size: 85px;
+    font-size: 75px;
     padding-top: 25px;
 }
 #introducao p {
     text-align: left;
     max-width: 700px;
     margin-left: 200px;
-    font-size: 40px;
+    font-size: 32px;
     line-height: 3rem;
-}
-
-nav .navbar-nav{
-    padding-left: 15px;
-}
-
-nav .nav-item{
-    padding: 0px 5px 0px 5px;
 }
 
 .azul-claro{
     color: #276fbf;
 }
 
-.navbar-fixa-topo{
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    right: 0;
-    left: 0;
+@media screen and (max-width:599px) {
+    #introducao h1 {
+        font-size: 33px !important;
+    }
+    #introducao p {
+        margin-left: 24px !important;
+        font-size: 15px !important;
+        line-height: 1.5rem !important;
+        margin-right: 30px;
+    }
+
+    .menu {
+        margin-left: 24px;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .bloco-do-menu {
+        margin-right: 30px;
+    }
+    .titulo-do-menu {
+        margin-left: 10px;
+        font-size: 20px;
+    }
+    .texto-do-menu {
+        margin-left: 24px;
+        font-size: 15px;
+    }
 }
 
-body {
-    margin: 0;
+@media screen and (min-width:600px) and (max-width:799px) {
+    #introducao h1 {
+        font-size: 50px !important;
+    } 
+    #introducao p {
+        margin-left: 40px !important;
+        font-size: 25px !important;
+        line-height: 1.5 !important;
+    }
+
+    .menu {
+        margin-right: 100px;
+        margin-bottom: 25px;
+        margin-left: 40px;
+    }
 }
 
-main {
-    margin: 0;   
-}
-
-html {
-    scroll-behavior: smooth;
+@media screen and (min-width:800px) and (max-width:999px) {
+    #introducao h1 {
+      font-size: 65px !important;
+    } 
+    #introducao p {
+        margin-left: 60px !important;
+        font-size: 27px !important;
+        line-height: 2rem !important;
+    }
 }

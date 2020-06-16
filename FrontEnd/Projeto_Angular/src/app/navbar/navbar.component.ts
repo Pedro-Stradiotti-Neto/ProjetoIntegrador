@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+
   }
 
   cadastrar() {
@@ -76,7 +77,12 @@ export class NavbarComponent implements OnInit {
       document.getElementById('alert-senha').innerHTML = "Senha Fraca";
       document.getElementById('alert-senha').style.visibility = "visible";
       contador++;
-    } else {
+    } else if (senha.length > 12) {
+      document.getElementById('alert-senha').innerHTML = "Senha maior que o limite";
+      document.getElementById('alert-senha').style.visibility = "visible";
+      contador++;
+    }
+    {
       document.getElementById("senhaRegister").style.border = "1px solid #ced4da";
     }
 

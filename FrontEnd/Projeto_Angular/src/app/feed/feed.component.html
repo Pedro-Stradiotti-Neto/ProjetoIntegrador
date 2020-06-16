@@ -3,33 +3,26 @@
     <div class="page-header header-filter"></div>
     <div class="main main-raised">
         <div class="profile-content">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile">
-                        <div class="avatar">
-                            <img src="../../assets/homem.jpg" alt="Circle Image"
-                                class="img-raised rounded-circle img-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                       <div class="profile">
+                            <div class="avatar">
+                                <img src="../../assets/bg.jpeg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 mb-5">
-                        <div class="card border-0 bg-light" style="width: 18rem;">
+                        <div class="card border-0 bg-light" style="max-width: 18rem;">
                             <div class="card-body">
                                 <h2 class="card-title text-center font-weight-bolder">Nome</h2>
                                 <a class="btn btn-editar d-flex justify-content-center mb-3">PERFIL</a>
                                 <a class="btn btn-button d-flex justify-content-center" routerLink='/doacao'>DOAÇÃO</a>
-                                <!-- target="_blank" -->
-                                <hr class="mt-4 mb-4">
-
-                                <h6 class="mb-3 text-center">Pesquisar por titulo</h6>
-
-                                <input type="text" class="form-control mb-3 w-100" placeholder="Pesquisar postagem">
-
-                                <button class="btn btn-pesquisa w-100">PESQUISA</button>
+                                <!-- target="_blank" -->   
                             </div>
                         </div>
                     </div>
@@ -38,20 +31,12 @@
                             <h3 class="text-center mb-4">No que está pensando?</h3>
 
                             <div class="form-group">
-
-                                <label for="titulo">Titulo:</label>
-                                <input type="text" name="titulo" id="titulo" class="form-control"
-                                    placeholder="Informe seu titulo" [(ngModel)]="postagem.titulo">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="texto">Texto:</label>
                                 <textarea name="texto" id="texto" cols="30" rows="4" class="form-control"
                                     placeholder="Informe seu texto" [(ngModel)]="postagem.texto"></textarea>
                             </div>
 
                             <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-button w-25" (click)="publicar()">PUBLICAR</button>
+                                <button type="button" class="btn btn-button w-20" (click)="publicar()">PUBLICAR</button>
                             </div>
 
                         </div>
@@ -66,7 +51,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="row">
-                                            <img src="../../assets/homem.jpg" alt="Circle Image"
+                                            <img src="../../assets/bg.jpeg" alt="Circle Image"
                                                 class="ml-2 rounded img-size">
                                             <h6 class="font-weight-bolder ml-2">Nome</h6>
                                         </div>
@@ -84,7 +69,7 @@
                             </div>
 
                             <div class="card-body">
-                                <h5 class="font-weight-bolder">Titulo</h5>
+                               
                                 <p class="card-text">Texto</p>
                                 <!-- <h5 class="font-weight-bolder">{{ postagem.titulo }}</h5>
                                 <p class="card-text">{{ postagem.texto }}</p>
@@ -125,14 +110,7 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="font-weight-bolder">Titulo</h5>
                             <p class="card-text">Texto</p>
-                            <!-- <h5 class="font-weight-bolder">{{ postagem.titulo }}</h5>
-                            <p class="card-text">{{ postagem.texto }}</p>
-                            <small class="form-text m-0 text-muted mb-3">
-                                Postado em {{ postagem.data | date: 'dd/MM/yyyy' }}
-                                às {{ postagem.data | date: 'HH:mm' }}
-                            </small> -->
                         </div>
                     </div>
                 </div>
@@ -143,6 +121,7 @@
                         (click)="btnSim()">EXCLUIR</button>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </body>

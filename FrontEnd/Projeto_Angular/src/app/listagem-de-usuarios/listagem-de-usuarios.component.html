@@ -16,7 +16,7 @@
                 <th scope="row">{{usuario.codigo}}</th>
                 <td>{{usuario.nome}}</td>
                 <td>{{usuario.email}}</td>
-                <td>*********</td>
+                <td>{{esconderSenha(usuario.senha)}}</td>
                 <td><a class="btn btn-outline-warning" [routerLink]="['/profile', usuario.codigo]">
                         Editar
                     </a></td>
