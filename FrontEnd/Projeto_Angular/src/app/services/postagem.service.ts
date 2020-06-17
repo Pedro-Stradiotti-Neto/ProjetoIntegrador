@@ -10,20 +10,30 @@ export class PostagemService {
   constructor(private http: HttpClient) { }
 
   getAllPostagens() {
-    return this.http.get('http://31.220.57.14:8080/postagens')
+    return this.http.get('http://localhost:8080/feed', {
+      headers: {
+        'authorization': localStorage.getItem('Token'),
+      }
+    })
   }
+
   postPostagem(postagem: Postagem) {
-    return this.http.post('http://31.220.57.14:8080/postagens', postagem)
+    return this.http.post('http://localhost:8080/feed', postagem, {
+      headers: {
+        'authorization': localStorage.getItem('Token'),
+      }
+    })
   }
+
   putPostagem(postagem: Postagem) {
-    return this.http.put('http://31.220.57.14:8080/postagens', postagem)
-
+    return this.http.put('http://localhost:8080/feed', postagem)
   }
+
   getByIdPostagem(id: number) {
-    return this.http.get(`http://31.220.57.14:8080/postagens${id}`)
+    return this.http.get(`http://localhost:8080/feed${id}`)
   }
-  deletePostagem(id: number) {
-    return this.http.delete(`http://31.220.57.14:8080/postagens${id}`)
 
+  deletePostagem(id: number) {
+    return this.http.delete(`http://localhost:8080/feed${id}`)
   }
 }

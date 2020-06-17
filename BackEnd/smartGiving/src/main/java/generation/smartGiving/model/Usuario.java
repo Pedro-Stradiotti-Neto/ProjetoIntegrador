@@ -8,9 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name = "TB_USUARIO")
@@ -31,9 +32,9 @@ public class Usuario {
 	@Email
 	private String email;
 	
-	@Column(name = "CD_SENHA", nullable = false, length = 12)
+	@Column(name = "CD_SENHA", nullable = false, length = 100)
 	@NotNull
-	@Size(min = 5, max = 12)
+	@Size(min = 5, max = 100)
 	private String senha;
 	
 	@Column(name = "NM_SEXO", nullable = false, length = 1)
@@ -43,7 +44,7 @@ public class Usuario {
 	
 	@Column(name = "DT_DATA_NASCIMENTO", nullable = false)
 	@NotNull
-	private Date data = new java.sql.Date(System.currentTimeMillis());
+	private Date data;
 	
 	public long getCodigo() {
 		return codigo;

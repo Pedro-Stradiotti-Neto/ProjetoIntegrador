@@ -24,7 +24,7 @@
                     <a class="nav-link text-light" routerLink="/feed">Feed</a>
                 </li>
                 <li class="nav-item loginOut">
-                    <a class="nav-link text-light">Sair</a>
+                    <a class="nav-link text-light" (click)="logout()">Sair</a>
                 </li>
             </ul>
         </div>
@@ -72,12 +72,13 @@
                                         <div class="form-group">
                                             <label for="emailLogin">Endereço de email: </label>
                                             <input type="email" class="form-control" id="emailLogin" name="email"
-                                                aria-describedby="emailHelp" placeholder="Seu email">
+                                                aria-describedby="emailHelp" placeholder="Seu email"
+                                                [(ngModel)]="usuarioLogin.email">
                                         </div>
                                         <div class="form-group">
                                             <label for="passwordLogin">Senha: </label>
                                             <input type="password" class="form-control" id="senhaLogin"
-                                                placeholder="Senha">
+                                                placeholder="Senha" name="senha" [(ngModel)]="usuarioLogin.senha">
                                         </div>
                                     </form>
                                 </div>
@@ -91,7 +92,7 @@
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-outline-primary">Login</button>
+                        <button type="submit" class="btn btn-outline-primary" (click)='login()'>Login</button>
                         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
