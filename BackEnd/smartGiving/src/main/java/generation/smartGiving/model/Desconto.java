@@ -18,7 +18,7 @@ public class Desconto {
 	@Column(name = "CD_DESCONTO", nullable = false, length = 10)
 	@Id
 	@Size(max = 10)
-	private String codigo;
+	private String codigo = "4F7GGT6DEF";
 	
 	@Column(name = "DS_ENDERECO", nullable = false, length = 100)
 	@NotNull
@@ -36,7 +36,7 @@ public class Desconto {
 	@Column(name = "CD_CUPOM_USADO", nullable = false, length = 10)
 	@NotNull
 	@Size(max = 10)
-	private String cupom;
+	private String cupom = "false";
 	
 	@ManyToOne
 	@JoinColumn(name = "CD_USUARIO", nullable = false)
