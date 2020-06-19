@@ -35,9 +35,7 @@
                         <div class="col-md-8 mb-5">
 
                             <div>
-                                <h2 class="text-center mb-4 font-weight-bolder">Edição</h2>
-
-
+                                <h2 class="text-center mb-4 font-weight-bolder">Edição de Postagem</h2>
 
                                 <div class="form-group">
                                     <textarea name="texto" id="texto" cols="30" rows="4" class="form-control"
@@ -84,13 +82,11 @@
                         </div>
 
                         <div class="card-body">
-                            <p class="card-text">Texto</p>
-                            <!-- <h5 class="font-weight-bolder">{{ postagem.titulo }}</h5>
-                        <p class="card-text">{{ postagem.texto }}</p>
-                        <small class="form-text m-0 text-muted mb-3">
-                            Postado em {{ postagem.data | date: 'dd/MM/yyyy' }}
-                            às {{ postagem.data | date: 'HH:mm' }}
-                        </small> -->
+                            <p class="card-text">{{ postagem.texto }}</p>
+                            <small class="form-text m-0 text-muted mb-3">
+                                Postado em {{ postagem.data | date: 'dd/MM/yyyy' }}
+                                às {{ postagem.data | date: 'HH:mm' }}
+                            </small>
                         </div>
                     </div>
                 </div>

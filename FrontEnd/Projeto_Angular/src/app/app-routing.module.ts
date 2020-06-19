@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'feed', component: FeedComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'usuarios', component: ListagemDeUsuariosComponent },
-  { path: 'doacao', component: DoacaoComponent },
+  { path: 'doacao/:id', component: DoacaoComponent },
   { path: 'editar/:id', component: EditarComponent },
   { path: '**', component: PagenotfoundComponent }
 ];

@@ -21,10 +21,10 @@
                             <div class="card border-0 bg-light" style="max-width: 18rem;">
                                 <div class="card-body">
                                     <h2 class="card-title text-center font-weight-bolder">{{usuario.nome}}</h2>
-                                    <a class="btn btn-editar d-flex justify-content-center mb-3">PERFIL</a>
-                                    <a class="btn btn-button d-flex justify-content-center"
-                                        routerLink='/doacao'>DOAÇÃO</a>
-                                    <!-- target="_blank" -->
+                                    <a class="btn btn-editar d-flex justify-content-center mb-3"
+                                        [routerLink]="['/profile', usuario.codigo]">PERFIL</a>
+                                    <a class=" btn btn-button d-flex justify-content-center"
+                                        [routerLink]="['/doacao', usuario.codigo]">DOAÇÃO</a>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
 
                             <h3 class="text-center mb-5">Meus Posts</h3>
 
-                            <div class="card mb-4" *ngFor="let postagem of listaPostagens">
+                            <div class="card mb-4" *ngFor="let post of listaPostagens">
                                 <div class="card mb-4">
                                     <div class="card-header bg-white">
                                         <div class="row">
@@ -56,12 +56,12 @@
                                                 <div class="row">
                                                     <img src="../../assets/bg.jpeg" alt="Circle Image"
                                                         class="ml-2 rounded img-size">
-                                                    <h6 class="font-weight-bolder ml-2">{{postagem.usuario.nome}}</h6>
+                                                    <h6 class="font-weight-bolder ml-2">{{post.usuario.nome}}</h6>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4 d-flex justify-content-end">
-                                                <button class="btn btn-editar" [routerLink]="['/editar', postagem.id]">
+                                                <button class="btn btn-editar" [routerLink]="['/editar', post.codigo]">
                                                     EDITAR
                                                 </button>
                                                 <button class="btn btn-excluir ml-2" data-toggle="modal"
@@ -72,12 +72,10 @@
                                     </div>
 
                                     <div class="card-body">
-
-                                        <!--<p class="card-text">Texto</p>-->
-                                        <p class="card-text">{{ postagem.texto }}</p>
+                                        <p class="card-text">{{ post.texto }}</p>
                                         <small class="form-text m-0 text-muted mb-3">
-                                            Postado em {{ postagem.data | date: 'dd/MM/yyyy' }}
-                                            às {{ postagem.data | date: 'HH:mm' }}
+                                            Postado em {{ post.data | date: 'dd/MM/yyyy' }}
+                                            às {{ post.data | date: 'HH:mm' }}
                                         </small>
                                     </div>
                                 </div>
@@ -86,43 +84,42 @@
                     </div>
                 </div>
             </div>
-
-            <div class="modal fade" id="deletePostagem" data-backdrop="static" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="titleModal">Deseja excluir essa postagem?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="card">
-                                <div class="card-header bg-white">
+        </div>
+    </div>
+    <div class="modal fade" id="deletePostagem" data-backdrop="static" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleModal">Deseja excluir essa postagem?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-header bg-white">
+                            <div class="row">
+                                <div class="col-md-8">
                                     <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="row">
-                                                <img src="../../assets/homem.jpg" alt="Circle Image"
-                                                    class="ml-2 rounded img-size">
-                                                <h6 class="font-weight-bolder ml-2">Nome</h6>
-                                            </div>
-                                        </div>
+                                        <img src="../../assets/homem.jpg" alt="Circle Image"
+                                            class="ml-2 rounded img-size">
+                                        <h6 class="font-weight-bolder ml-2">Nome</h6>
                                     </div>
-                                </div>
-
-                                <div class="card-body">
-                                    <p class="card-text">Texto</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-editar" data-dismiss="modal">NÃO</button>
-                            <button type="button" class="btn btn-excluir" data-dismiss="modal"
-                                (click)="btnSim()">EXCLUIR</button>
+                        <div class="card-body">
+                            <p class="card-text">Texto</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-editar" data-dismiss="modal">NÃO</button>
+                    <button type="button" class="btn btn-excluir" data-dismiss="modal"
+                        (click)="btnSim()">EXCLUIR</button>
                 </div>
             </div>
         </div>

@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    window.scroll(0, 0);
     this.obterUsuarioPorId(this.route.snapshot.params['id']);
 
     localStorage.setItem('escolha', String(this.choose))

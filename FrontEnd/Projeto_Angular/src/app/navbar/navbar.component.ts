@@ -10,7 +10,7 @@ import { UsuarioLogin } from '../models/usuarioLogin';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  listEmails: String[] = ['wallacy@t', '', '', '', ''];
   usuario: Usuario = new Usuario;
   usuarioLogin: UsuarioLogin = new UsuarioLogin;
 
@@ -21,6 +21,23 @@ export class NavbarComponent implements OnInit {
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+
+    let login = (<HTMLSelectElement>document.getElementById('loginIn'));
+    let logout = (<HTMLSelectElement>document.getElementById('loginOut'));
+    let adm = (<HTMLSelectElement>document.getElementById('pagAdm'));
+
+    if (localStorage.getItem('Token') == null) {
+      login.style.display = "block";
+      logout.style.display = "none";
+    } else {
+      login.style.display = "none";
+      logout.style.display = "block";
+      for (let i = 0; i < this.listEmails.length; i++) {
+        if (this.usuario.email == this.listEmails[i]) {
+          adm.style.display = "block";
+        }
+      }
+    }
 
   }
 

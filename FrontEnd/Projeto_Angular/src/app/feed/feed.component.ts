@@ -60,7 +60,7 @@ export class FeedComponent implements OnInit {
   }
 
   btnSim() {
-    this.postagemService.deletePostagem(this.postagem.id).subscribe(() => {
+    this.postagemService.deletePostagem(this.postagem.codigo).subscribe(() => {
       location.assign('/feed');
       localStorage.setItem('excluido', 'true')
     })

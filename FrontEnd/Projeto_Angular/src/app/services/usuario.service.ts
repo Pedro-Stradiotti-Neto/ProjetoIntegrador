@@ -13,7 +13,11 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   obterTodos() {
-    return this.http.get(this.enderecoDoServidor);
+    return this.http.get(this.enderecoDoServidor, {
+      headers: {
+        'authorization': localStorage.getItem('Token'),
+      }
+    });
   }
 
   obterPorId(id: number) {
@@ -33,10 +37,18 @@ export class UsuarioService {
   }
 
   attDadosUsuario(usuario: Usuario) {
-    return this.http.put(this.enderecoDoServidor, usuario);
+    return this.http.put(this.enderecoDoServidor, usuario, {
+      headers: {
+        'authorization': localStorage.getItem('Token'),
+      }
+    });
   }
 
   deletarUsuario(id: number) {
-    return this.http.delete(this.enderecoDoServidor + '/' + id)
+    return this.http.delete(this.enderecoDoServidor + '/' + id, {
+      headers: {
+        'authorization': localStorage.getItem('Token'),
+      }
+    })
   }
 }
