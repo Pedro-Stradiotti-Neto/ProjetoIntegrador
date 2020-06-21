@@ -45,12 +45,6 @@ export class ListagemDeUsuariosComponent implements OnInit {
   }
 
   esconderSenha(senha) {
-    var senhaEscondida = '';
-
-    for (let i = 0; i < senha.length; i++) {
-      senhaEscondida += '*';
-    }
-
-    return senhaEscondida;
+    return '******';
   }
 }
