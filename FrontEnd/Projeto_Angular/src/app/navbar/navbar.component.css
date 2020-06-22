@@ -20,7 +20,7 @@
     color: white;
 }
 
-.navbar-toggle-icon {
+.navbar-toggler {
     color: #fff;
 }
 
@@ -40,7 +40,7 @@
     display: none;
 }
 
-.pagAdm {
+#adm {
     display: none;
 }
 

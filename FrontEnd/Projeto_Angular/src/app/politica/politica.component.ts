@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-declare var jQuery: any;
 
 @Component({
   selector: 'app-politica',
@@ -11,24 +10,25 @@ export class PoliticaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    (function ($) { //função javascript
-      $(document).ready(function () { //Espera a página ser carregada
-        $(window).scroll(function () { //Escuta da ação de scroll
-          var posicaoDoElemento = $('#menuLateral').offset(); // Traz a posicão do elemento na página
-          if ($(window).scrollTop() >= posicaoDoElemento.top) { //Se o topo da página atual for maior que o topo do menu
-            $('#menuLateral').addClass('sticky-top'); //Coloca menu fixo
-          } else {
-            $('#menuLateral').removeClass('sticky-top'); //Se não remove menu fixo
-          }
-        });
-      });
-    })(jQuery);
+    window.addEventListener('scroll', function () { //escuta os eventos de rolagem da página
+      let elemento = document.getElementById('menuLateral'); //obtem o menu a ser fixado
+
+      if (elemento == null)
+        return;
+
+      let posicaoDoTopoDoElemento = elemento.getBoundingClientRect().top + window.scrollY; //obtem o topo do menu na pagina
+
+      if (window.scrollY >= posicaoDoTopoDoElemento) { //Se o topo da página atual for maior que o topo do menu
+        elemento.classList.add('sticky-top'); //Coloca menu fixo
+      } else {
+        elemento.classList.remove('sticky-top'); //Se não remove menu fixo
+      }
+    });
 
     window.scroll(0, 0);
   }
 
   irParaElemento($element): void {
-    console.log($element);
     $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   }
 }
