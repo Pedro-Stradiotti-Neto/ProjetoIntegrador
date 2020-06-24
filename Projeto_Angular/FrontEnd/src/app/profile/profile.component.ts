@@ -32,21 +32,27 @@ export class ProfileComponent implements OnInit {
   }
 
   editar() {
-    let propFieldset = document.querySelector("fieldset");
+    let propFieldset1 = <HTMLFieldSetElement>document.getElementById("dP1")
+    let propFieldset2 = <HTMLFieldSetElement>document.getElementById("dP2");
     let propEdit = <HTMLInputElement>document.getElementById("save");
     let choose = localStorage.getItem('escolha');
-    let showPassword = <HTMLInputElement>document.getElementById("telPerfil");
+    let showPassword = <HTMLInputElement>document.getElementById("senhaPerfil");
+    let showPassword2 = <HTMLInputElement>document.getElementById("senhaPerfil2");
 
     if (choose == 'true') {
-      propFieldset.disabled = false;
+      propFieldset1.disabled = false;
+      propFieldset2.disabled = false;
       propEdit.disabled = false;
       localStorage.setItem('escolha', 'false');
       showPassword.setAttribute('type', 'text');
+      showPassword2.setAttribute('type', 'text');
     } else {
-      propFieldset.disabled = true;
+      propFieldset1.disabled = true;
+      propFieldset2.disabled = true;
       propEdit.disabled = true;
       localStorage.setItem('escolha', 'true');
       showPassword.setAttribute('type', 'password');
+      showPassword2.setAttribute('type', 'password');
     }
   }
 

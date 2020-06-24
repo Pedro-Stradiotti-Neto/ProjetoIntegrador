@@ -11,22 +11,24 @@ export class PoliticaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    (function ($) {
-      $(document).ready(function () {
-        var elementPosition = $('#menuLateral').offset(); // Traz a posicão do elemento na página.
-        var tamanho = $('#menuLateral').width();          // Pega a largura do elemento
-
-        $(window).scroll(function () {
-          if ($(window).scrollTop() > elementPosition.top) {
-            $('#menuLateral').css('position', 'fixed').css('top', '0').css('left', elementPosition.left);
-            $('#menuLateral').css('width', tamanho);
+    (function ($) { //função javascript
+      $(document).ready(function () { //Espera a página ser carregada
+        $(window).scroll(function () { //Escuta da ação de scroll
+          var posicaoDoElemento = $('#menuLateral').offset(); // Traz a posicão do elemento na página
+          if ($(window).scrollTop() >= posicaoDoElemento.top) { //Se o topo da página atual for maior que o topo do menu
+            $('#menuLateral').addClass('sticky-top'); //Coloca menu fixo
           } else {
-            $('#menuLateral').css('position', 'static');
+            $('#menuLateral').removeClass('sticky-top'); //Se não remove menu fixo
           }
         });
       });
     })(jQuery);
 
     window.scroll(0, 0);
+  }
+
+  irParaElemento($element): void {
+    console.log($element);
+    $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   }
 }

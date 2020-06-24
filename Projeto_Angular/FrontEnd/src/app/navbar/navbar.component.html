@@ -6,21 +6,25 @@
                 <fa-icon [icon]='faBars' class="fa mr-2"></fa-icon>
             </span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSite">
+        <div class="collapse navbar-collapse ml-5" id="navbarSite">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-light " routerLink='/home'>Home</a>
+                    <a class="nav-link text-light " routerLink='/faq'>Duvidas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light " routerLink='/contato'>Contato</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light " routerLink='/faq'>Duvidas</a>
-                </li>
+
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item loginIn">
                     <a class="nav-link text-light loginButton" data-toggle="modal" data-target="#loginModal">Login</a>
+                </li>
+                <li class="nav-item loginOut">
+                    <a class="nav-link text-light" routerLink="/feed">Feed</a>
+                </li>
+                <li class="nav-item loginOut">
+                    <a class="nav-link text-light" (click)="logout()">Sair</a>
                 </li>
             </ul>
         </div>
@@ -68,12 +72,13 @@
                                         <div class="form-group">
                                             <label for="emailLogin">Endereço de email: </label>
                                             <input type="email" class="form-control" id="emailLogin" name="email"
-                                                aria-describedby="emailHelp" placeholder="Seu email">
+                                                aria-describedby="emailHelp" placeholder="Seu email"
+                                                [(ngModel)]="usuarioLogin.email">
                                         </div>
                                         <div class="form-group">
                                             <label for="passwordLogin">Senha: </label>
                                             <input type="password" class="form-control" id="senhaLogin"
-                                                placeholder="Senha">
+                                                placeholder="Senha" name="senha" [(ngModel)]="usuarioLogin.senha">
                                         </div>
                                     </form>
                                 </div>
@@ -87,7 +92,7 @@
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-outline-primary">Login</button>
+                        <button type="submit" class="btn btn-outline-primary" (click)='login()'>Login</button>
                         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -127,6 +132,24 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label for="nameRegister">Sexo: </label>
+                                            <select class="custom-select" id="inputGroupSelect01" name="sexo"
+                                                [(ngModel)]="usuario.sexo">
+                                                <option selected disabled>Escolha</option>
+                                                <option value="M">Masculino</option>
+                                                <option value="F">Feminino</option>
+                                            </select>
+                                            <div style="visibility: hidden" class="alert alert-danger"
+                                                role="alert-email" id="alert-nome"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nameRegister">Data de Nascimento: </label>
+                                            <input type="date" class="form-control" id="dataRegister" name="data"
+                                                placeholder="Nome" [(ngModel)]="usuario.data">
+                                            <div style="visibility: hidden" class="alert alert-danger"
+                                                role="alert-email" id="alert-nome"></div>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="passwordRegister">Senha: </label>
                                             <input type="password" class="form-control" id="senhaRegister" name='senha'
                                                 placeholder="Senha">
@@ -154,3 +177,4 @@
             </div>
         </div>
     </div>
+</div>

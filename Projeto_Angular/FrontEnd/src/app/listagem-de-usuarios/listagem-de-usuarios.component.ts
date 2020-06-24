@@ -43,4 +43,14 @@ export class ListagemDeUsuariosComponent implements OnInit {
       localStorage.setItem('delOk', 'true')
     })
   }
+
+  esconderSenha(senha) {
+    var senhaEscondida = '';
+
+    for (let i = 0; i < senha.length; i++) {
+      senhaEscondida += '*';
+    }
+
+    return senhaEscondida;
+  }
 }

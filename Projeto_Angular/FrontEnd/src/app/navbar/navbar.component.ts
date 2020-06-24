@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faBars, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { UsuarioService } from '../services/usuario.service';
 import { Usuario } from '../models/usuario';
+import { UsuarioLogin } from '../models/usuarioLogin';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +12,7 @@ import { Usuario } from '../models/usuario';
 export class NavbarComponent implements OnInit {
 
   usuario: Usuario = new Usuario;
+  usuarioLogin: UsuarioLogin = new UsuarioLogin;
 
   faBars = faBars;
   faUser = faUser;
@@ -19,6 +21,7 @@ export class NavbarComponent implements OnInit {
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+
   }
 
   cadastrar() {
@@ -76,7 +79,12 @@ export class NavbarComponent implements OnInit {
       document.getElementById('alert-senha').innerHTML = "Senha Fraca";
       document.getElementById('alert-senha').style.visibility = "visible";
       contador++;
-    } else {
+    } else if (senha.length > 12) {
+      document.getElementById('alert-senha').innerHTML = "Senha maior que o limite";
+      document.getElementById('alert-senha').style.visibility = "visible";
+      contador++;
+    }
+    {
       document.getElementById("senhaRegister").style.border = "1px solid #ced4da";
     }
 
@@ -99,5 +107,24 @@ export class NavbarComponent implements OnInit {
     this.usuarioService.cadastrarUsuario(this.usuario).subscribe((resp: Usuario) => {
       this.usuario = resp
     })
+  }
+
+  login() {
+    this.usuarioService.loginUsuario(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
+      if (resp.token == null) {
+        alert('Usuário não encontrado!')
+      } else {
+        alert('Bem vindo ' + resp.nome)
+        localStorage.setItem('Token', resp.token);
+        localStorage.setItem('Identify', resp.codigo.toString());
+        location.assign('/feed');
+        console.log(resp);
+      }
+    })
+  }
+
+  logout() {
+    localStorage.removeItem('Token');
+    location.assign('/home');
   }
 }
