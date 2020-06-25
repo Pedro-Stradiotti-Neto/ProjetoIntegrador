@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
 
     let login = (<HTMLSelectElement>document.getElementById('loginIn'));
     let logout = (<HTMLSelectElement>document.getElementById('loginOut'));
-    let adm = (<HTMLSelectElement>document.getElementById('pagAdm'));
+    let adm = (<HTMLSelectElement>document.getElementById('adm'));
 
     if (localStorage.getItem('Token') == null) {
       login.style.display = "block";
@@ -32,13 +32,7 @@ export class NavbarComponent implements OnInit {
     } else {
       login.style.display = "none";
       logout.style.display = "block";
-      for (let i = 0; i < this.listEmails.length; i++) {
-        if (this.usuario.email == this.listEmails[i]) {
-          adm.style.display = "block";
-        }
-      }
     }
-
   }
 
   cadastrar() {
