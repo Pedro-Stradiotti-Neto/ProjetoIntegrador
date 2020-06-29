@@ -26,6 +26,21 @@ body{
     max-width: 400px;
 }
 
+.cadastrar{
+    background-color: #183059;
+    color: #fff;
+    font-weight: bolder;
+    border-color: #183059;
+    margin-left: 30px;
+    
+}
+
+.cadastrar:hover {
+    background-color: #fff;
+    color: #183059;
+    font-weight: bolder;
+}
+
 #sobre{
     background: #183059;
     color: white;
@@ -68,9 +83,10 @@ body{
     height: 600px;
 }
 
-#fundadores a{
+#fundadores .seta{
     opacity: 0;
 }
+
 
 #fundadores img{
     width: 200px;
@@ -85,7 +101,7 @@ body{
     display: none;
 }
 
-.carouselActive2 a{
+.carouselActive2 a .seta{
     opacity: 0;
 }
 
