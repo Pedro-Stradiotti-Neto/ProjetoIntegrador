@@ -1,0 +1,36 @@
+.navbar {
+    font-size: 20px;
+}
+
+.menu{
+    background-color: #183059;
+}
+
+.menu > li > a{
+    background-color: #183059;
+}
+
+.hamburger{
+    font-size: 30px;
+    color: white;
+}
+
+.navbar-toggle-icon {
+    color: #fff;
+}
+
+.btn{
+    font-size: 20px;
+}
+
+.loginButton {
+    cursor: pointer;
+}
+
+.tabsList {
+    background-color: #d3d3d3;
+}
+
+.logoLogin {
+    background-color: #183059;
+}

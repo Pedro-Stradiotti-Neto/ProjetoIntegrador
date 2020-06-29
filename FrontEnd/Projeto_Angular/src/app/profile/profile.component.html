@@ -1,0 +1,98 @@
+<main class="d-flex justify-content-start">
+    <div class="d-flex flex-column perfil ml-4">
+        <img src="../../assets/avatar.png" alt="Imagem Pessoal" class="img-thumbnail">
+        <div class="btn-group-vertical">
+            <button type="button" class="btn btn-light">Perfil</button>
+            <button type="button" class="btn btn-light">Doacão de Roupas</button>
+            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#delProfile">Deletar
+                Conta</button>
+            <button type="button" class="btn btn-light" routerLink="/usuarios">Voltar</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="delProfile" data-backdrop="static" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleModal">Deseja excluir sua conta?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">E-mail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">{{usuario.nome}}</td>
+                                <td>{{usuario.email}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Ainda não</button>
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="btnSim()">Quero
+                        Deletar!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dadosPessoais">
+        <h1 class="text-center">Dados Pessoais</h1>
+        <form class="mt-4">
+            <fieldset disabled>
+                <div class="dados">
+                    <div class="form-group row">
+                        <label for="nomePerfil" class="col-sm-2 col-form-label">Nome</label>
+                        <div class="col-sm-10">
+                            <input type="text" [(ngModel)]="usuario.nome" class="form-control" id="nomePerfil"
+                                name="nome">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="emailPerfil" class="col-sm-2 col-form-label">E-mail</label>
+                        <div class="col-sm-10">
+                            <input type="email" [(ngModel)]="usuario.email" class="form-control" id="emailPerfil"
+                                name="email">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="telPerfil" class="col-sm-2 col-form-label">Senha</label>
+                        <div class="col-sm-10">
+                            <input type="password" [(ngModel)]="usuario.senha" class="form-control" id="telPerfil"
+                                name="senha">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="sexPerfil" class="col-sm-2 col-form-label">Sexo</label>
+                        <div class="col-sm-10">
+                            <input type="text" [(ngModel)]="usuario.sexo" class="form-control" id="sexPerfil"
+                                name="sexo">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="dataPerfil" class="col-sm-2 col-form-label">Data de Nascimento</label>
+                        <div class="col-sm-10">
+                            <input type="text" [(ngModel)]="usuario.data" class="form-control" id="dataPerfil"
+                                name="data">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group row buttons">
+                <div class="col-sm-12 d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary" id="edit" (click)='editar()'>Editar</button>
+                    <button disabled type="submit" class="btn btn-primary" id="save" (click)='salvar()'>Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>

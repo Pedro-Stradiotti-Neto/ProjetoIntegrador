@@ -1,0 +1,47 @@
+#introducao {
+    background-color: #183059;
+    color: #fff;
+}
+#introducao h1 {
+    font-size: 85px;
+    padding-top: 25px;
+}
+#introducao p {
+    text-align: left;
+    max-width: 700px;
+    margin-left: 200px;
+    font-size: 40px;
+    line-height: 3rem;
+}
+
+nav .navbar-nav{
+    padding-left: 15px;
+}
+
+nav .nav-item{
+    padding: 0px 5px 0px 5px;
+}
+
+.azul-claro{
+    color: #276fbf;
+}
+
+.navbar-fixa-topo{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    right: 0;
+    left: 0;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    margin: 0;   
+}
+
+html {
+    scroll-behavior: smooth;
+}
