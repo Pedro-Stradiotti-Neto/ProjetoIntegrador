@@ -45,7 +45,7 @@ O backend será executado na porta 8080.
 
 ![Capturar](https://user-images.githubusercontent.com/58611826/86015669-3f1b4080-b9f8-11ea-9c96-940eeb850d0d.JPG)
 
-## Aplicação Rodando 
+## Rodando Aplicação
 
 Após a execução do back-end e do front-end a aplicação já estará disponivel para uso local.
 
