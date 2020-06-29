@@ -18,6 +18,8 @@ import { FormsModule } from '@angular/forms';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { DoacaoComponent } from './doacao/doacao.component';
 import { EditarComponent } from './editar/editar.component';
+import { EditarSenhaComponent } from './editar-senha/editar-senha.component';
+import { TesteComponent } from './teste/teste.component';
 import { ModalsListagemComponent } from './modals-listagem/modals-listagem.component';
 
 @NgModule({
@@ -35,7 +37,9 @@ import { ModalsListagemComponent } from './modals-listagem/modals-listagem.compo
     PagenotfoundComponent,
     DoacaoComponent,
     EditarComponent,
-    ModalsListagemComponent
+    ModalsListagemComponent,
+    EditarSenhaComponent,
+    TesteComponent
   ],
   imports: [
     BrowserModule,
