@@ -117,11 +117,10 @@ header a, a:visited {
 
 .galaxy{
     z-index: 0;
-    position: absolute;
     left: 0;
     right: 0;
-    width: 1200px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
 } 
       .star{
@@ -374,4 +373,16 @@ img.vert-move2 {
     .lamps-container {
         display: none;
     }
-}   
+}
+@media screen and (max-width:480px){
+    .lamps-container {
+        display: none;
+    }
+}
+
+
+
+
+
+       
+       

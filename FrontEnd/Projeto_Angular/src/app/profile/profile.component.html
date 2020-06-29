@@ -1,10 +1,10 @@
 <main class="d-flex justify-content-center">
-    <div class="d-flex flex-column perfil ml-4">
+    <div class="d-flex flex-column perfil">
         <img src="../../assets/avatar.png" alt="Imagem Pessoal" class="img-thumbnail">
         <div class="btn-group-vertical">
-            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#delProfile">Deletar
-                Conta</button>
-            <button type="button" class="btn btn-light" routerLink="/feed">Voltar</button>
+            <a class="btn btn-deletar d-flex justify-content-center mb-2" data-toggle="modal"
+                data-target="#delProfile">Deletar Conta</a>
+            <a class=" btn btn-voltar d-flex justify-content-center" routerLink="/feed">Voltar</a>
         </div>
     </div>
 
@@ -79,10 +79,20 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="dataPerfil" class="col-sm-2 col-form-label">Data de Nascimento</label>
+                        <label for="dataPerfil" class="col-sm-2 col-form-label duasLinhas">Data de
+                            Nascimento</label>
                         <div class="col-sm-10">
                             <input type="date" date="yyyy-MM-dd" [(ngModel)]='usuario.data' class="form-control"
                                 id="dataPerfil" name="data">
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf='perfil()'>
+                        <label for="sexPerfil" class="col-sm-2 col-form-label">Credenciais</label>
+                        <div class="col-sm-10">
+                            <select class="custom-select" id="perfilPerfil" name="perfil" [(ngModel)]="usuario.perfil">
+                                <option value="user">Usuário</option>
+                                <option value="adm">Administrador</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -93,8 +103,7 @@
                         <label for="nomePerfil" class="col-sm-12 col-form-label titlesPerfil">Nome</label>
                     </div>
                     <div class="form-group row">
-                        <input type="text" [(ngModel)]="usuario.nome" class="form-control" id="nomePerfil22"
-                            name="nome">
+                        <input type="text" [(ngModel)]="usuario.nome" class="form-control" id="nomePerfil2" name="nome">
                     </div>
                     <div class="form-group row">
                         <label for="emailPerfil" class="col-sm-12 col-form-label titlesPerfil">E-mail</label>
@@ -122,11 +131,24 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="dataPerfil" class="col-sm-12 col-form-label titlesPerfil">Data de Nascimento</label>
+                        <label for="dataPerfil" class="col-sm-12 col-form-label titlesPerfil">Data de
+                            Nascimento</label>
                     </div>
                     <div class="form-group row">
                         <input type="date" date="dd-MM-yyyy" [(ngModel)]='usuario.data' class="form-control mb-3"
                             id="dataPerfil2" name="data">
+                    </div>
+                    <div class="form-group row" *ngIf='perfil()'>
+                        <label for="perfilPerfil2" class="col-sm-12 col-form-label titlesPerfil">Perfil do
+                            Usuário</label>
+                    </div>
+                    <div class="form-group row" *ngIf='perfil()'>
+                        <div class="col-sm-12">
+                            <select class="custom-select" id="perfilPerfil2" name="perfil" [(ngModel)]="usuario.perfil">
+                                <option value="user">Usuário</option>
+                                <option value="adm">Administrador</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </fieldset>

@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { DoacaoComponent } from './doacao/doacao.component';
 import { EditarComponent } from './editar/editar.component';
-import { ModalsListagemComponent } from './modals-listagem/modals-listagem.component';
+import { EditarSenhaComponent } from './editar-senha/editar-senha.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { ModalsListagemComponent } from './modals-listagem/modals-listagem.compo
     PagenotfoundComponent,
     DoacaoComponent,
     EditarComponent,
-    ModalsListagemComponent
+    EditarSenhaComponent
   ],
   imports: [
     BrowserModule,

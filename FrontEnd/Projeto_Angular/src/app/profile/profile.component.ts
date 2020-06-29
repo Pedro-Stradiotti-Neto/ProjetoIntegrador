@@ -21,8 +21,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0);
     this.obterUsuarioPorId(this.route.snapshot.params['id']);
-
-    localStorage.setItem('escolha', String(this.choose))
+    localStorage.setItem('escolha', String(this.choose));
     this.editar();
   }
 
@@ -60,15 +59,26 @@ export class ProfileComponent implements OnInit {
   salvar() {
     this.usuarioService.attDadosUsuario(this.usuario).subscribe((resp: Usuario) => {
       this.usuario = resp;
-      this.router.navigate(['/usuarios']);
-      location.assign('/usuarios');
+      localStorage.setItem('Perfil', this.usuario.perfil)
+      this.router.navigate(['/feed']);
+      location.assign('/feed');
     })
   }
 
   btnSim() {
     this.usuarioService.deletarUsuario(this.usuario.codigo).subscribe(() => {
-      localStorage.setItem('delOk', 'true')
-      this.router.navigate(['/usuarios']);
+      localStorage.clear();
+      this.router.navigate(['/home']);
     })
+  }
+
+  perfil() {
+    let adm = false;
+    let perfil = localStorage.getItem('Perfil');
+
+    if (perfil == "adm") {
+      adm = true;
+    }
+    return adm;
   }
 }
