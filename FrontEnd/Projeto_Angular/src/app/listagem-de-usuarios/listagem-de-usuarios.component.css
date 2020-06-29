@@ -7,6 +7,43 @@
     background-color: #e9ecef;
 }
 
+.btn-button-editar {
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: #ffc107;    
+  }
+  
+.btn-button-editar:hover {
+    color: #ffc107;
+    font-weight: bolder;
+    background-color: #ffffff; 
+    border-color: #ffc107;
+}
+.btn-button-excluir {
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: #dc3545;    
+  }
+  
+.btn-button-excluir:hover {
+    color: #dc3545;
+    font-weight: bolder;
+    background-color: #ffffff; 
+    border-color: #dc3545;
+}
+.btn-button-cancelar {
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: #6c757d;    
+  }
+  
+.btn-button-cancelar:hover {
+    color: #6c757d;
+    font-weight: bolder;
+    background-color: #ffffff; 
+    border-color: #6c757d;
+}
+
 @media screen and (max-width:991px) {
     .botao-de-funcao{
         margin-top: 5px
@@ -58,4 +95,5 @@
         line-height: 1.5;
         border-radius: .2rem;
     }
+    
 }

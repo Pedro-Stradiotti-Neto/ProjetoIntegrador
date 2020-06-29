@@ -18,10 +18,10 @@
                     <td>{{usuario.nome}}</td>
                     <td>{{usuario.email}}</td>
                     <td>{{esconderSenha(usuario.senha)}}</td>
-                    <td><a class="btn btn-outline-warning mr-2" [routerLink]="['/profile', usuario.codigo]">
+                    <td><a class="btn btn-button-editar mr-2" [routerLink]="['/profile', usuario.codigo]">
                             Editar
                         </a>
-                        <button class="btn btn-outline-danger botao-de-funcao" data-toggle="modal"
+                        <button class="btn btn-button-excluir botao-de-funcao" data-toggle="modal"
                             data-target="#delProfile" (click)="btnDel(usuario)">
                             Excluir
                         </button>
@@ -58,8 +58,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Ainda não</button>
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
+                        <button type="button" class="btn btn-button-cancelar" data-dismiss="modal">Ainda não</button>
+                        <button type="button" class="btn btn-button-excluir" data-dismiss="modal"
                             (click)="btnSim()">Quero
                             Deletar!</button>
                     </div>

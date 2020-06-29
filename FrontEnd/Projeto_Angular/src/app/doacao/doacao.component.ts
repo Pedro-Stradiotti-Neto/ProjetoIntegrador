@@ -30,9 +30,13 @@ export class DoacaoComponent implements OnInit {
 
   doar() {
     this.doacao.usuario = this.usuario;
-    this.doacaoService.cadastrarDoacao(this.doacao).subscribe((resp: Doacao) => {
-      this.doacao = resp;
-      this.router.navigate(['/feed'])
-    })
+    this.doacao.codigo = Math.random().toString(36).substr(2, 9) + Math.floor(Math.random() * 10);
+
+    this.doacaoService.cadastrarDoacao(this.doacao)
+      .subscribe((resp: Doacao) => {
+        alert("Agora falta pouco...\nApresente o código abaixo no local de doação escolhido!\n\n" + this.doacao.codigo + "\n\nAgradecemos desde já!");
+        this.doacao = resp;
+        this.router.navigate(['/feed'])
+      })
   }
 }
