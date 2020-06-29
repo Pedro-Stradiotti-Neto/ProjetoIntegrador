@@ -5,4 +5,5 @@ export class Usuario {
     senha: string;
     sexo: string;
     data: Date;
+    perfil: string;
 }

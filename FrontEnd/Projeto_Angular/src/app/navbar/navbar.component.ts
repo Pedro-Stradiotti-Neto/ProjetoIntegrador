@@ -10,7 +10,6 @@ import { UsuarioLogin } from '../models/usuarioLogin';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  listEmails: String[] = ['wallacy@t', '', '', '', ''];
   usuario: Usuario = new Usuario;
   usuarioLogin: UsuarioLogin = new UsuarioLogin;
 
@@ -22,17 +21,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let login = (<HTMLSelectElement>document.getElementById('loginIn'));
-    let logout = (<HTMLSelectElement>document.getElementById('loginOut'));
-    let adm = (<HTMLSelectElement>document.getElementById('adm'));
-
-    if (localStorage.getItem('Token') == null) {
-      login.style.display = "block";
-      logout.style.display = "none";
-    } else {
-      login.style.display = "none";
-      logout.style.display = "block";
-    }
   }
 
   cadastrar() {
@@ -43,8 +31,6 @@ export class NavbarComponent implements OnInit {
 
     if (this.validar(nome, email, senha, confirmaSenha)) {
       this.subir();
-      alert("Dados enviados com sucesso!");
-      location.assign('/usuarios');
     } else {
       event.preventDefault();
     }
@@ -116,26 +102,49 @@ export class NavbarComponent implements OnInit {
 
   subir() {
     this.usuarioService.cadastrarUsuario(this.usuario).subscribe((resp: Usuario) => {
-      this.usuario = resp
+      this.usuario = resp;
+      alert("Dados enviados com sucesso!");
+      location.assign('/home');
+    }, err => {
+      alert("E-mail já cadastrado, favor informar outro.")
     })
   }
 
   login() {
     this.usuarioService.loginUsuario(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
-      if (resp.token == null) {
-        alert('Usuário não encontrado!')
-      } else {
-        alert('Bem vindo ' + resp.nome)
-        localStorage.setItem('Token', resp.token);
-        localStorage.setItem('Identify', resp.codigo.toString());
-        location.assign('/feed');
-        console.log(resp);
-      }
+      alert('Bem vindo ' + resp.nome)
+      localStorage.setItem('Token', resp.token);
+      localStorage.setItem('Identify', resp.codigo.toString());
+      localStorage.setItem('Perfil', resp.perfil);
+      location.assign('/feed');
+    }, err => {
+      alert('Usuario não encontrado, tente novamente ou faça o cadastro.')
     })
   }
 
   logout() {
-    localStorage.removeItem('Token');
+    localStorage.clear();
     location.assign('/home');
+  }
+
+  session() {
+    let on = false;
+    let token = localStorage.getItem('Token');
+    if (token != null) {
+      on = true;
+    }
+    return on;
+  }
+
+  perfil() {
+    let adm = false;
+    let perfil = localStorage.getItem('Perfil');
+
+    if (this.session()) {
+      if (perfil == "adm") {
+        adm = true;
+      }
+    }
+    return adm;
   }
 }

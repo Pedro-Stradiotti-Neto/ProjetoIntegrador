@@ -16,7 +16,7 @@ import generation.smartGiving.repository.UsuarioRepository;
 public class UsuarioService {
 
 	@Autowired
-private UsuarioRepository repository;
+	private UsuarioRepository repository;
 	
 	public Usuario CadastrarUsuario(Usuario usuario) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -41,6 +41,7 @@ private UsuarioRepository repository;
 				user.get().setToken(authHeader);
 				user.get().setNome(usuario.get().getNome());
 				user.get().setCodigo(usuario.get().getCodigo());
+				user.get().setPerfil(usuario.get().getPerfil());
 				
 				return user;
 			}

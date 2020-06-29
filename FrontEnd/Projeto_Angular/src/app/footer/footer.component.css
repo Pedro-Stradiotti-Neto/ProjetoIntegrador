@@ -5,6 +5,12 @@ footer{
     margin-top: 30px;
     color: white;
 }
+
+footer img {
+    width: 156px;
+    height: 52.6px;
+}
+
 .social-icons {
     margin: auto 0;
 }
@@ -39,6 +45,10 @@ footer{
     }
 
     footer div {
+        margin-top: 1em;
+    }
+
+    .politica {
         margin-top: 1em;
     }
 }

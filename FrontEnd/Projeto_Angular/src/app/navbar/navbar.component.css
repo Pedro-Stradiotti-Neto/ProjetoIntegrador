@@ -32,14 +32,6 @@
     cursor: pointer;
 }
 
-.loginIn {
-    display: block;
-}
-
-.loginOut {
-    display: none;
-}
-
 #adm {
     display: none;
 }

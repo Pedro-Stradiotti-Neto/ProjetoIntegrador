@@ -20,7 +20,6 @@ import { DoacaoComponent } from './doacao/doacao.component';
 import { EditarComponent } from './editar/editar.component';
 import { EditarSenhaComponent } from './editar-senha/editar-senha.component';
 import { TesteComponent } from './teste/teste.component';
-import { ModalsListagemComponent } from './modals-listagem/modals-listagem.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +36,6 @@ import { ModalsListagemComponent } from './modals-listagem/modals-listagem.compo
     PagenotfoundComponent,
     DoacaoComponent,
     EditarComponent,
-    ModalsListagemComponent,
     EditarSenhaComponent,
     TesteComponent
   ],
