@@ -74,8 +74,8 @@ public class EnderecoParceiro {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUsuario(Usuario aux) {
+		this.usuario = aux;
 	}
 	
 }

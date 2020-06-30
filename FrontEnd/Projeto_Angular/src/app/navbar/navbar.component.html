@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse ml-5" id="navbarSite">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-light " routerLink='/faq'>Duvidas</a>
+                    <a class="nav-link text-light " routerLink='/faq'>Dúvidas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light " routerLink='/contato'>Contato</a>
@@ -66,11 +66,18 @@
                             <div class="col-md-12 logoLogin">
                                 <div class="card d-flex justify-content-center align-items-center logoLogin">
                                     <div class="d-flex justify-content-center p-1 logoLogin">
-                                        <img src="../../assets/logo-completa.png"
-                                            class="card-img-top rounded-circle w-75" alt="...">
+                                        <img src="../../assets/logo-completa.png" class="card-img-top w-75"
+                                            alt="Logo Smart Giving">
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="alert alert-success" role="alert" *ngIf='delOk == "true"'>
+                            {{delOkMessage}}
+                        </div>
+
+                        <div class="alert alert-danger" role="alert" *ngIf='delFail == "true"'>
+                            {{delOkMessage}}
                         </div>
                         <div class="container">
                             <div class="row mt-4">
@@ -99,8 +106,8 @@
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-outline-primary" (click)='login()'>Login</button>
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btnLogin" (click)='login()'>Login</button>
+                        <button type="button" class="btn btn-button-cancelar" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
 
@@ -117,6 +124,13 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="alert alert-success" role="alert" *ngIf='delOk == "true"'>
+                                {{delOkMessage}}
+                            </div>
+
+                            <div class="alert alert-danger" role="alert" *ngIf='delFail == "true"'>
+                                {{delOkMessage}}
                             </div>
                             <div class="row mt-4">
                                 <div class="col-md-12">
@@ -177,8 +191,8 @@
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-outline-primary" (click)="cadastrar()">Cadastrar</button>
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btnLogin" (click)="cadastrar()">Cadastrar</button>
+                        <button type="button" class="btn btn-button-cancelar" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>

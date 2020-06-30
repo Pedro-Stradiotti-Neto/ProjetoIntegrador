@@ -47,13 +47,25 @@ public class UsuarioController {
 	@PostMapping("/logar")
 	public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user){
 		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
-				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Usuario> PostCadastrar(@RequestBody Usuario usuario) {
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(usuarioService.CadastrarUsuario(usuario));
+	}
+	
+	@PostMapping("/redefinir")
+	public ResponseEntity<Usuario> PostRedefinir(@RequestBody String usuario){
+		return repository.findByEmail(usuario).map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.notFound().build());
+	}
+	
+	@PutMapping("/redefinir")
+	public ResponseEntity<Usuario> PutSenha(@RequestBody Usuario user){
+		user = usuarioService.encriptarSenha(user);
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(user));
 	}
 	
 	@PutMapping

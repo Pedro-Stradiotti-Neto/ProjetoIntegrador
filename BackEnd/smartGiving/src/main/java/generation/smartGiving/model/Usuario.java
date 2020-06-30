@@ -1,5 +1,6 @@
 package generation.smartGiving.model;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -44,7 +45,7 @@ public class Usuario {
 	
 	@Column(name = "DT_DATA_NASCIMENTO", nullable = false)
 	@NotNull
-	private Date data;
+	private Calendar data;
 	
 	@Column(name = "NM_PERFIL", nullable = false, length = 4)
 	@NotNull
@@ -90,11 +91,11 @@ public class Usuario {
 		this.sexo = sexo;
 	}
 	
-	public Date getData() {
+	public Calendar getData() {
 		return data;
 	}
 	
-	public void setData(Date data) {
+	public void setData(Calendar data) {
 		this.data = data;
 	}
 

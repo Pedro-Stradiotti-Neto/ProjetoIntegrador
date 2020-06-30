@@ -60,6 +60,5 @@ public class UsuarioLogin {
 
 	public void setPerfil(String perfil) {
 		this.perfil = perfil;
-	}
-	
+	}	
 }

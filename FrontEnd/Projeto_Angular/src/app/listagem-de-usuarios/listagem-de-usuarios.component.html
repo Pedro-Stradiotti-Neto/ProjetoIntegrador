@@ -10,6 +10,10 @@
         {{delOkMessage}}
     </div>
 
+    <div class="alert alert-danger" role="alert" *ngIf='delFail == "true"'>
+        {{delOkMessage}}
+    </div>
+
     <nav class="row d-flex justify-content-center">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-user-tab" data-toggle="tab" href="#nav-user" role="tab"
@@ -65,7 +69,7 @@
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">Id</th>
+                            <th scope="col">Código</th>
                             <th scope="col">Parceiro</th>
                             <th scope="col">Endereço</th>
                             <th scope="col">Total Doado</th>
@@ -98,9 +102,9 @@
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">Codigo</th>
+                            <th scope="col">Código</th>
                             <th scope="col">Endereço</th>
-                            <th scope="col">Data de Doacao</th>
+                            <th scope="col">Data de Doação</th>
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
@@ -201,9 +205,10 @@
                             <div class="form-group">
                                 <div class="form-group">
                                     <label for="nomeParceiro">Parceiro: </label>
-                                    <select class="custom-select" id="inputGroupSelect02" name="parceiro"
-                                        [(ngModel)]="endereco.parceiro">
-                                        <option *ngFor="let usuario of usuarios">{{usuario.nome}}</option>
+                                    <select class="custom-select" id="idUsuarioEndereco">
+                                        <option value={{usuario.codigo}} *ngFor="let usuario of usuarios">
+                                            {{usuario.nome}}
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -216,11 +221,6 @@
                                 <label for="totalDoadoParceiro">Total Doado: </label>
                                 <input type="text" class="form-control" id="totalDoadoParceiro" name="totalDoado"
                                     placeholder="Total Doado" [(ngModel)]="endereco.totalDoado">
-                            </div>
-                            <div class="form-group">
-                                <label for="idParceiro">Código do Parceiro: </label>
-                                <input type="text" class="form-control" id="idParceiro" name="usuario"
-                                    placeholder="Identificação">
                             </div>
                         </form>
                     </div>

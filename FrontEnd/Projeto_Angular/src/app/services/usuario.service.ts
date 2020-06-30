@@ -44,11 +44,19 @@ export class UsuarioService {
     });
   }
 
+  attSenha(usuario: Usuario) {
+    return this.http.put(this.enderecoDoServidor + '/redefinir', usuario)
+  }
+
   deletarUsuario(id: number) {
     return this.http.delete(this.enderecoDoServidor + '/' + id, {
       headers: {
         'authorization': localStorage.getItem('Token'),
       }
     })
+  }
+
+  redefinirSenha(email: string) {
+    return this.http.post(this.enderecoDoServidor + '/redefinir', email)
   }
 }

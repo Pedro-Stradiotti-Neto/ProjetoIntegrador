@@ -16,7 +16,7 @@ import generation.smartGiving.repository.UsuarioRepository;
 public class UsuarioService {
 
 	@Autowired
-	private UsuarioRepository repository;
+private UsuarioRepository repository;
 	
 	public Usuario CadastrarUsuario(Usuario usuario) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -26,6 +26,16 @@ public class UsuarioService {
 		usuario.setSenha(senhaEncoder);
 		
 		return repository.save(usuario);
+	}
+	
+	public Usuario encriptarSenha(Usuario usuario) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		
+		String senhaEncoder = encoder.encode(usuario.getSenha());
+		
+		usuario.setSenha(senhaEncoder);
+		
+		return usuario;
 	}
 	
 	public Optional<UsuarioLogin> Logar(Optional<UsuarioLogin> user){
