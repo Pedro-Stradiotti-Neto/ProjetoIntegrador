@@ -51,6 +51,7 @@ private UsuarioRepository repository;
 				user.get().setToken(authHeader);
 				user.get().setNome(usuario.get().getNome());
 				user.get().setCodigo(usuario.get().getCodigo());
+				user.get().setPerfil(usuario.get().getPerfil());
 				
 				return user;
 			}

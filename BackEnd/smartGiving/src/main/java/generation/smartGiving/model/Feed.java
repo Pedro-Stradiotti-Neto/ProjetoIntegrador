@@ -28,7 +28,7 @@ public class Feed {
 	
 	@Column(name = "DS_PUBLICACAO", nullable = false, length = 200)
 	@NotNull
-	@Size(min = 10, max = 200)
+	@Size(min = 5, max = 200)
 	private String texto;
 
 	@ManyToOne

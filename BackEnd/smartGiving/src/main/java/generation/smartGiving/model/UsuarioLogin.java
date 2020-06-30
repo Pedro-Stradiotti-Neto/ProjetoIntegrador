@@ -11,6 +11,8 @@ public class UsuarioLogin {
 	private String senha;
 	
 	private String token;
+	
+	private String perfil;
 
 	public long getCodigo() {
 		return codigo;
@@ -51,5 +53,12 @@ public class UsuarioLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
-	
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
+	}	
 }

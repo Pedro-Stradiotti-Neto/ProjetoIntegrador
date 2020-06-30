@@ -22,7 +22,7 @@ public class EnderecoParceiro {
 	
 	@Column(name = "NM_PARCEIRO", nullable = false, length = 50)
 	@NotNull
-	@Size(min = 10, max = 50)
+	@Size(min = 3, max = 50)
 	private String parceiro;
 	
 	@Column(name = "DS_PARCEIRO", nullable = false, length = 100)
@@ -74,8 +74,8 @@ public class EnderecoParceiro {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUsuario(Usuario aux) {
+		this.usuario = aux;
 	}
 	
 }
