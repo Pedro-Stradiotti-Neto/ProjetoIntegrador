@@ -25,7 +25,7 @@ export class EditarComponent implements OnInit {
 
     if (post == "true") {
       alert('Postagem excluida com sucesso')
-      localStorage.clear();
+      localStorage.removeItem('excluido');
     }
     window.scroll(0, 0);
 

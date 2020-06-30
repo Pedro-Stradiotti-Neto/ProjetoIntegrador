@@ -19,16 +19,16 @@ export class EnderecoService {
     });
   }
 
-  cadastrarEndereco(endereo: Endereco) {
-    return this.http.post(this.enderecoDoServidor, endereo, {
+  cadastrarEndereco(endereco: Endereco) {
+    return this.http.post(this.enderecoDoServidor, endereco, {
       headers: {
         'authorization': localStorage.getItem('Token'),
       }
     });
   }
 
-  attDadosEndereco(endereo: Endereco) {
-    return this.http.put(this.enderecoDoServidor, endereo, {
+  attDadosEndereco(endereco: Endereco) {
+    return this.http.put(this.enderecoDoServidor, endereco, {
       headers: {
         'authorization': localStorage.getItem('Token'),
       }

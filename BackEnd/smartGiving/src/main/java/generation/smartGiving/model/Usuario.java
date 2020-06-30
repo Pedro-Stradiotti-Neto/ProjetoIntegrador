@@ -27,7 +27,7 @@ public class Usuario {
 	@Size(min = 2, max = 50)
 	private String nome;
 	
-	@Column(name = "NM_EMAIL", nullable = false, length = 30, unique = true)
+	@Column(name = "NM_EMAIL", nullable = false, length = 30)
 	@NotNull
 	@Email
 	private String email;
@@ -45,10 +45,6 @@ public class Usuario {
 	@Column(name = "DT_DATA_NASCIMENTO", nullable = false)
 	@NotNull
 	private Date data;
-	
-	@Column(name = "NM_PERFIL", nullable = false, length = 4)
-	@NotNull
-	private String perfil = "user";
 	
 	public long getCodigo() {
 		return codigo;
@@ -96,13 +92,5 @@ public class Usuario {
 	
 	public void setData(Date data) {
 		this.data = data;
-	}
-
-	public String getPerfil() {
-		return perfil;
-	}
-
-	public void setPerfil(String perfil) {
-		this.perfil = perfil;
 	}
 }

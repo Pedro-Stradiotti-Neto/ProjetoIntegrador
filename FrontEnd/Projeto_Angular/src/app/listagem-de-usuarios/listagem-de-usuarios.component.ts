@@ -21,6 +21,7 @@ export class ListagemDeUsuariosComponent implements OnInit {
   doacoes: Doacao[];
   tab: String = "Usuarios";
   delOk: String = 'false';
+  delFail: String = 'false';
   delOkMessage: String;
 
   constructor(private usuarioService: UsuarioService, private enderecoService: EnderecoService, private doacaoService: DoacaoService) { }
@@ -29,14 +30,20 @@ export class ListagemDeUsuariosComponent implements OnInit {
     this.obterTodosOsUsuarios();
     this.obterTodosOsEnderecos();
     this.obterTodosAsDoacoes();
-
+    this.endereco.usuario = new Usuario;
     window.scroll(0, 0);
   }
 
   acaoSucesso(texto: String, acao: String) {
-    this.delOk = localStorage.getItem('delOk');
-    this.delOkMessage = texto + " " + acao + " com sucesso!";
-    localStorage.removeItem('delOk');
+    if (acao == "falha") {
+      this.delFail = localStorage.getItem('delFail');
+      this.delOkMessage = acao + " " + texto;
+      localStorage.removeItem('delFail');
+    } else {
+      this.delOk = localStorage.getItem('delOk');
+      this.delOkMessage = texto + " " + acao + " com sucesso!";
+      localStorage.removeItem('delOk');
+    }
   }
 
   obterTodosOsUsuarios() {
@@ -76,7 +83,7 @@ export class ListagemDeUsuariosComponent implements OnInit {
       setTimeout(() => {
         location.assign('/usuarios')
       }
-        , 5000)
+        , 2000)
     })
   }
 
@@ -87,26 +94,33 @@ export class ListagemDeUsuariosComponent implements OnInit {
       setTimeout(() => {
         location.assign('/usuarios')
       }
-        , 5000)
+        , 2000)
     })
   }
 
   btnNovoEndereco() {
-    let usuarioAux: Usuario = new Usuario;
-    usuarioAux.codigo = parseInt((<HTMLSelectElement>document.getElementById("idParceiro")).value);
-    this.endereco.usuario = usuarioAux;
-    this.enderecoService.cadastrarEndereco(this.endereco).subscribe((resp: Endereco) => {
-      this.endereco = resp;
-      localStorage.setItem('delOk', 'true');
-      this.acaoSucesso('Endereço', 'cadastrado');
-      setTimeout(() => {
-        location.assign('/usuarios')
-      }
-        , 5000)
+    let id = parseInt((<HTMLSelectElement>document.getElementById("idUsuarioEndereco")).value)
+
+    this.usuarioService.obterPorId(id).subscribe((resp: Usuario) => {
+      this.endereco.parceiro = resp.nome;
+      this.endereco.usuario.codigo = resp.codigo;
     }, err => {
-      alert("Falha ao cadastrar novo endereco, tente novamente mais tarde");
+      localStorage.setItem('delFail', 'true');
+      this.acaoSucesso('cadastrar endereço', 'Falha');
     })
-    this.endereco = new Endereco;
+
+    setTimeout(() => {
+      this.enderecoService.cadastrarEndereco(this.endereco).subscribe((resp: Endereco) => {
+        this.endereco = resp;
+        localStorage.setItem('delOk', 'true');
+        this.acaoSucesso('Endereço', 'cadastrado');
+        setTimeout(() => {
+          location.assign('/usuarios')
+        }
+          , 2000)
+      })
+      this.endereco = new Endereco;
+    }, 2000);
   }
 
   btnAtualizarEndereco() {
@@ -117,7 +131,7 @@ export class ListagemDeUsuariosComponent implements OnInit {
       setTimeout(() => {
         location.assign('/usuarios')
       }
-        , 5000)
+        , 2000)
     })
   }
 

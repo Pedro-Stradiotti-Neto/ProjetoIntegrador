@@ -56,6 +56,18 @@ public class UsuarioController {
 				.body(usuarioService.CadastrarUsuario(usuario));
 	}
 	
+	@PostMapping("/redefinir")
+	public ResponseEntity<Usuario> PostRedefinir(@RequestBody String usuario){
+		return repository.findByEmail(usuario).map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.notFound().build());
+	}
+	
+	@PutMapping("/redefinir")
+	public ResponseEntity<Usuario> PutSenha(@RequestBody Usuario user){
+		user = usuarioService.encriptarSenha(user);
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(user));
+	}
+	
 	@PutMapping
 	public ResponseEntity<Usuario> Put(@RequestBody Usuario user){
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(user));

@@ -12,6 +12,10 @@ import { UsuarioLogin } from '../models/usuarioLogin';
 export class NavbarComponent implements OnInit {
   usuario: Usuario = new Usuario;
   usuarioLogin: UsuarioLogin = new UsuarioLogin;
+  delOk: string;
+  delFail: string;
+  delOkMessage: string;
+  loginOk: string;
 
   faBars = faBars;
   faUser = faUser;
@@ -101,24 +105,34 @@ export class NavbarComponent implements OnInit {
   }
 
   subir() {
+    this.delOk = "false";
+    this.delFail = "false";
     this.usuarioService.cadastrarUsuario(this.usuario).subscribe((resp: Usuario) => {
       this.usuario = resp;
-      alert("Dados enviados com sucesso!");
-      location.assign('/home');
+      localStorage.setItem('delOk', 'true');
+      this.acaoSucesso('Dados', 'enviados');
+      setTimeout(() => {
+        location.assign('/home')
+      }
+        , 2000)
     }, err => {
-      alert("E-mail já cadastrado, favor informar outro.")
+      localStorage.setItem('delFail', 'true');
+      this.acaoFalha('cadastro');
     })
   }
 
   login() {
+    this.delOk = "false";
+    this.delFail = "false";
     this.usuarioService.loginUsuario(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
-      alert('Bem vindo ' + resp.nome)
+      alert('Bem vindo ' + resp.nome);
       localStorage.setItem('Token', resp.token);
       localStorage.setItem('Identify', resp.codigo.toString());
       localStorage.setItem('Perfil', resp.perfil);
       location.assign('/feed');
     }, err => {
-      alert('Usuario não encontrado, tente novamente ou faça o cadastro.')
+      localStorage.setItem('delFail', 'true');
+      this.acaoFalha('login');
     })
   }
 
@@ -146,5 +160,29 @@ export class NavbarComponent implements OnInit {
       }
     }
     return adm;
+  }
+
+  acaoSucesso(texto: String, acao: String) {
+    this.delOk = localStorage.getItem('delOk');
+    this.delOkMessage = texto + " " + acao + " com sucesso!";
+    localStorage.removeItem('delOk');
+  }
+
+  acaoFalha(acao: String) {
+    switch (acao) {
+      case "login":
+        this.delFail = localStorage.getItem('delFail');
+        this.delOkMessage = "Usuário não encontrado, tente novamente ou faça o cadastro.";
+        localStorage.removeItem('delFail');
+        break;
+      case "cadastro":
+        this.delFail = localStorage.getItem('delFail');
+        this.delOkMessage = "E-mail já cadastrado, informe outro.";
+        localStorage.removeItem('delFail');
+        break;
+      default:
+        alert("Passei Aqui!")
+        break;
+    }
   }
 }

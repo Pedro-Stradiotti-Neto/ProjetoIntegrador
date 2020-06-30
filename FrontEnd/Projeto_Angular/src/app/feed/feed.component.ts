@@ -11,10 +11,10 @@ import { Usuario } from '../models/usuario';
 })
 export class FeedComponent implements OnInit {
 
-  key = 'data'
-  reverse = true
+  key: string = 'data';
+  reverse: boolean = true;
 
-  listaPostagens: Postagem[]
+  listaPostagens: Postagem[];
 
   postagem: Postagem = new Postagem
   usuario: Usuario = new Usuario;
@@ -23,6 +23,7 @@ export class FeedComponent implements OnInit {
 
   ngOnInit() {
     this.findAllPostagens()
+
     this.usuarioService.obterPorId(parseInt(localStorage.getItem('Identify'))).subscribe((resp: Usuario) => {
       this.usuario = resp
     })
@@ -35,7 +36,7 @@ export class FeedComponent implements OnInit {
 
     if (post == "true") {
       alert('Postagem excluida com sucesso')
-      localStorage.clear();
+      localStorage.removeItem('excluido');
     }
     window.scroll(0, 0);
 
@@ -53,10 +54,6 @@ export class FeedComponent implements OnInit {
       this.postagem = resp
       location.assign('/feed')
     });
-  }
-
-  btnExcluir(postagem: Postagem) {
-    this.postagem = postagem;
   }
 
   btnSim() {
