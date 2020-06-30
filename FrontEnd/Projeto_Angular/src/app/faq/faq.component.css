@@ -23,16 +23,16 @@
 }
 
 .btnHome {
+    background-color: #183059;
+    color: #ffffff;
+    font-weight: bolder;
+}
+
+.btnHome:hover {
     background-color: #ffffff;
     color: #183059;
     font-weight: bolder;
     border-color: #183059;
-}
-
-.btnHome:hover {
-    background-color: #183059;
-    color: #ffffff;
-    font-weight: bolder;
 }
 
 @media screen and (max-width: 414px) {

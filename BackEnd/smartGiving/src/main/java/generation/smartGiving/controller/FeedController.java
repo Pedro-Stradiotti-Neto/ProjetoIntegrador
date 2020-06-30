@@ -31,6 +31,13 @@ public class FeedController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
+	@GetMapping("/{codigo}")
+	public ResponseEntity<Feed> GetById(@PathVariable long codigo){
+		return repository.findById(codigo)
+				.map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.notFound().build());
+	}
+	
 	@PostMapping
 	public ResponseEntity<Feed> Post(@RequestBody Feed postagem){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));

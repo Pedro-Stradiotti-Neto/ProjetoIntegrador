@@ -1,5 +1,6 @@
 package generation.smartGiving.model;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,9 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name = "TB_USUARIO")
@@ -26,14 +28,14 @@ public class Usuario {
 	@Size(min = 2, max = 50)
 	private String nome;
 	
-	@Column(name = "NM_EMAIL", nullable = false, length = 30)
+	@Column(name = "NM_EMAIL", nullable = false, length = 30, unique = true)
 	@NotNull
 	@Email
 	private String email;
 	
-	@Column(name = "CD_SENHA", nullable = false, length = 12)
+	@Column(name = "CD_SENHA", nullable = false, length = 100)
 	@NotNull
-	@Size(min = 5, max = 12)
+	@Size(min = 5, max = 100)
 	private String senha;
 	
 	@Column(name = "NM_SEXO", nullable = false, length = 1)
@@ -43,7 +45,11 @@ public class Usuario {
 	
 	@Column(name = "DT_DATA_NASCIMENTO", nullable = false)
 	@NotNull
-	private Date data = new java.sql.Date(System.currentTimeMillis());
+	private Calendar data;
+	
+	@Column(name = "NM_PERFIL", nullable = false, length = 4)
+	@NotNull
+	private String perfil = "user";
 	
 	public long getCodigo() {
 		return codigo;
@@ -85,11 +91,19 @@ public class Usuario {
 		this.sexo = sexo;
 	}
 	
-	public Date getData() {
+	public Calendar getData() {
 		return data;
 	}
 	
-	public void setData(Date data) {
+	public void setData(Calendar data) {
 		this.data = data;
+	}
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
 	}
 }

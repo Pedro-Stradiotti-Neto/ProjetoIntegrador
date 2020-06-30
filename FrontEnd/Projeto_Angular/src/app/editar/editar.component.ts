@@ -18,13 +18,14 @@ export class EditarComponent implements OnInit {
   ngOnInit(): void {
 
     var id = this.route.snapshot.params['id']
-    this.findById(id)
+    this.findById(id);
+    console.log(this.postagem);
 
     let post: string = localStorage.getItem('excluido');
 
     if (post == "true") {
       alert('Postagem excluida com sucesso')
-      localStorage.clear();
+      localStorage.removeItem('excluido');
     }
     window.scroll(0, 0);
 
@@ -32,7 +33,7 @@ export class EditarComponent implements OnInit {
 
   findById(id: number) {
     this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem) => {
-      this.postagem = resp
+      this.postagem = resp;
     })
   }
 
@@ -49,7 +50,7 @@ export class EditarComponent implements OnInit {
   }
 
   btnSim() {
-    this.postagemService.deletePostagem(this.postagem.id).subscribe(() => {
+    this.postagemService.deletePostagem(this.postagem.codigo).subscribe(() => {
       location.assign('/feed');
       localStorage.setItem('excluido', 'true')
     })

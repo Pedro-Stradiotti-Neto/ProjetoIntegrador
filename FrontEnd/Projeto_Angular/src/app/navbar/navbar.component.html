@@ -6,22 +6,33 @@
                 <fa-icon [icon]='faBars' class="fa mr-2"></fa-icon>
             </span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSite">
+        <div class="collapse navbar-collapse ml-5" id="navbarSite">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-light " routerLink='/home'>Home</a>
+                    <a class="nav-link text-light " routerLink='/faq'>Dúvidas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light " routerLink='/contato'>Contato</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light " routerLink='/faq'>Duvidas</a>
-                </li>
+
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item loginIn" *ngIf='!session()'>
                     <a class="nav-link text-light loginButton" data-toggle="modal" data-target="#loginModal">Login</a>
                 </li>
+
+                <div class="dropdown loginOut" *ngIf='session()'>
+                    <button class="btn dropdown-toggle loginOutBtn" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Conta
+                    </button>
+                    <div class="dropdown-menu loginOutBtn" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item loginOutBtn" type="button" routerLink="/usuarios"
+                            *ngIf='perfil()'>Adm</button>
+                        <button class="dropdown-item loginOutBtn" type="button" routerLink="/feed">Feed</button>
+                        <button class="dropdown-item loginOutBtn" type="button" (click)="logout()">Sair</button>
+                    </div>
+                </div>
             </ul>
         </div>
     </div>
@@ -55,11 +66,18 @@
                             <div class="col-md-12 logoLogin">
                                 <div class="card d-flex justify-content-center align-items-center logoLogin">
                                     <div class="d-flex justify-content-center p-1 logoLogin">
-                                        <img src="../../assets/logo-completa.png"
-                                            class="card-img-top rounded-circle w-75" alt="...">
+                                        <img src="../../assets/logo-completa.png" class="card-img-top w-75"
+                                            alt="Logo Smart Giving">
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="alert alert-success" role="alert" *ngIf='delOk == "true"'>
+                            {{delOkMessage}}
+                        </div>
+
+                        <div class="alert alert-danger" role="alert" *ngIf='delFail == "true"'>
+                            {{delOkMessage}}
                         </div>
                         <div class="container">
                             <div class="row mt-4">
@@ -68,27 +86,28 @@
                                         <div class="form-group">
                                             <label for="emailLogin">Endereço de email: </label>
                                             <input type="email" class="form-control" id="emailLogin" name="email"
-                                                aria-describedby="emailHelp" placeholder="Seu email">
+                                                aria-describedby="emailHelp" placeholder="Seu email"
+                                                [(ngModel)]="usuarioLogin.email">
                                         </div>
                                         <div class="form-group">
                                             <label for="passwordLogin">Senha: </label>
                                             <input type="password" class="form-control" id="senhaLogin"
-                                                placeholder="Senha">
+                                                placeholder="Senha" name="senha" [(ngModel)]="usuarioLogin.senha">
                                         </div>
                                     </form>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p class="text-info d-flex justify-content-end linkTransfer"><a routerLink='/home'
-                                            class="text-info ml-1">Esqueceu sua senha?</a></p>
+                                    <p class="text-info d-flex justify-content-end linkTransfer"><a
+                                            routerLink='/redefinir' class="text-info ml-1">Esqueceu sua senha?</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-outline-primary">Login</button>
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btnLogin" (click)='login()'>Login</button>
+                        <button type="button" class="btn btn-button-cancelar" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
 
@@ -105,6 +124,13 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="alert alert-success" role="alert" *ngIf='delOk == "true"'>
+                                {{delOkMessage}}
+                            </div>
+
+                            <div class="alert alert-danger" role="alert" *ngIf='delFail == "true"'>
+                                {{delOkMessage}}
                             </div>
                             <div class="row mt-4">
                                 <div class="col-md-12">
@@ -127,6 +153,24 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label for="nameRegister">Sexo: </label>
+                                            <select class="custom-select" id="inputGroupSelect01" name="sexo"
+                                                [(ngModel)]="usuario.sexo">
+                                                <option selected disabled>Escolha</option>
+                                                <option value="M">Masculino</option>
+                                                <option value="F">Feminino</option>
+                                            </select>
+                                            <div style="visibility: hidden" class="alert alert-danger"
+                                                role="alert-email" id="alert-nome"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nameRegister">Data de Nascimento: </label>
+                                            <input type="date" class="form-control" id="dataRegister" name="data"
+                                                placeholder="Nome" [(ngModel)]="usuario.data">
+                                            <div style="visibility: hidden" class="alert alert-danger"
+                                                role="alert-email" id="alert-nome"></div>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="passwordRegister">Senha: </label>
                                             <input type="password" class="form-control" id="senhaRegister" name='senha'
                                                 placeholder="Senha">
@@ -147,10 +191,11 @@
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-outline-primary" (click)="cadastrar()">Cadastrar</button>
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btnLogin" (click)="cadastrar()">Cadastrar</button>
+                        <button type="button" class="btn btn-button-cancelar" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
