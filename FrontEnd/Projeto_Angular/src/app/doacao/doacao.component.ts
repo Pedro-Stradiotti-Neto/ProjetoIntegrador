@@ -14,18 +14,29 @@ export class DoacaoComponent implements OnInit {
 
   doacao: Doacao = new Doacao;
   usuario: Usuario = new Usuario;
+  doacoes: Doacao[] = [];
+  key: string = 'data';
+  reverse: boolean = true;
 
   constructor(private doacaoService: DoacaoService, private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     window.scroll(0, 0);
-    this.obterUsuarioPorId(this.route.snapshot.params['id']);
+    let idDoUsuario = this.route.snapshot.params['id'];
+    this.obterUsuarioPorId(idDoUsuario);
+    this.obterDoacoes(idDoUsuario);
   }
 
   obterUsuarioPorId(id: number) {
     this.usuarioService.obterPorId(id).subscribe((resp: Usuario) => {
       this.usuario = resp
     })
+  }
+
+  obterDoacoes(idDoUsuario: number) {
+    this.doacaoService.obterPorUsuario(idDoUsuario).subscribe((resp: Doacao[]) => {
+      this.doacoes = resp;
+    });
   }
 
   doar() {

@@ -124,15 +124,25 @@ export class ListagemDeUsuariosComponent implements OnInit {
   }
 
   btnAtualizarEndereco() {
-    this.enderecoService.attDadosEndereco(this.enderecoEdit).subscribe((resp: Endereco) => {
-      this.enderecoEdit = resp;
-      localStorage.setItem('delOk', 'true');
-      this.acaoSucesso('Endereço', 'atualizado');
-      setTimeout(() => {
-        location.assign('/usuarios')
-      }
-        , 2000)
+
+    let id = parseInt((<HTMLSelectElement>document.getElementById("inputGroupSelect03")).value)
+
+    this.usuarioService.obterPorId(id).subscribe((resp: Usuario) => {
+      this.enderecoEdit.parceiro = resp.nome;
+      this.enderecoEdit.usuario.codigo = resp.codigo;
     })
+
+    setTimeout(() => {
+      this.enderecoService.attDadosEndereco(this.enderecoEdit).subscribe((resp: Endereco) => {
+        this.enderecoEdit = resp;
+        localStorage.setItem('delOk', 'true');
+        this.acaoSucesso('Endereço', 'atualizado');
+        setTimeout(() => {
+          location.assign('/usuarios')
+        }
+          , 2000);
+      })
+    }, 2000)
   }
 
   esconderSenha(senha) {

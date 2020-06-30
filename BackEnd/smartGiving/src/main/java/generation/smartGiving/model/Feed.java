@@ -34,7 +34,7 @@ public class Feed {
 	@ManyToOne
 	@JoinColumn(name = "CD_USUARIO", nullable = false)
 	private Usuario usuario;
-
+	
 	public long getCodigo() {
 		return codigo;
 	}

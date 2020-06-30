@@ -2,10 +2,12 @@ package generation.smartGiving.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import generation.smartGiving.model.Usuario;
 import generation.smartGiving.model.UsuarioLogin;
+import generation.smartGiving.repository.DescontoRepository;
+import generation.smartGiving.repository.EnderecoParceiroRepository;
+import generation.smartGiving.repository.FeedRepository;
 import generation.smartGiving.repository.UsuarioRepository;
+import generation.smartGiving.service.SendMail;
 import generation.smartGiving.service.UsuarioService;
 
 @RestController
@@ -31,6 +37,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioService usuarioService;
+	
+	@Autowired
+	private SendMail sendEmail;
 	
 	@GetMapping
 	public ResponseEntity<List<Usuario>> GetAll(){
@@ -63,9 +72,15 @@ public class UsuarioController {
 	}
 	
 	@PutMapping("/redefinir")
-	public ResponseEntity<Usuario> PutSenha(@RequestBody Usuario user){
-		user = usuarioService.encriptarSenha(user);
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(user));
+	public void PutSenha(@RequestBody Usuario user){
+		
+		String subject = "Redefinição da Senha";
+		String body = "A sua nova senha é: " + user.getSenha();
+		sendEmail.send(user.getEmail(), subject, body);
+		System.out.println(user);
+		Usuario usuario = usuarioService.encriptarSenha(user);
+		System.out.println(usuario);
+		repository.save(usuario);
 	}
 	
 	@PutMapping
@@ -75,7 +90,7 @@ public class UsuarioController {
 	
 	@DeleteMapping("/{codigo}")
 	public void Delete(@PathVariable long codigo) {
-		repository.deleteById(codigo);
+		usuarioService.Excluir(codigo);
 	}
 
 }

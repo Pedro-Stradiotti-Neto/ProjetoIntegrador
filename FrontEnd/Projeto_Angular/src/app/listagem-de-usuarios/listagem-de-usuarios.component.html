@@ -248,9 +248,9 @@
                             <div class="form-group">
                                 <div class="form-group">
                                     <label for="nomeParceiro">Parceiro: </label>
-                                    <select class="custom-select" id="inputGroupSelect03" name="parceiro"
-                                        [(ngModel)]="enderecoEdit.parceiro">
-                                        <option *ngFor="let usuario of usuarios">{{usuario.nome}}</option>
+                                    <select class="custom-select" id="inputGroupSelect03">
+                                        <option value={{usuario.codigo}} *ngFor="let usuario of usuarios">
+                                            {{usuario.nome}}</option>
                                     </select>
                                 </div>
                             </div>

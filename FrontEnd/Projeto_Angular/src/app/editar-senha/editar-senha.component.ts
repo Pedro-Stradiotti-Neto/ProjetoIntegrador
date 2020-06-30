@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { UsuarioService } from '../services/usuario.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,29 +13,22 @@ export class EditarSenhaComponent implements OnInit {
 
   usuario: Usuario = new Usuario;
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
   editarSenha() {
-    let confirmaSenha: string = (<HTMLSelectElement>document.getElementById('confirmaSenha')).value;
-
-    if (confirmaSenha == this.usuario.senha) {
-
-      this.usuario.senha = confirmaSenha
-      this.usuarioService.redefinirSenha(this.usuario.email).subscribe((resp: Usuario) => {
-        this.usuario = resp
-        this.usuario.senha = confirmaSenha
-        console.log(this.usuario.senha)
-        this.usuarioService.attSenha(this.usuario).subscribe((resp: Usuario) => {
-          this.usuario = resp
-          alert('senha alterada com sucesso')
-        })
-      }, err => { alert('Usuario não existe') })
-    } else {
-      alert('erro ao alterar senha')
-    }
+    this.usuarioService.redefinirSenha(this.usuario.email).subscribe((resp: Usuario) => {
+      this.usuario = resp
+      this.usuario.senha = Math.random().toString(36).substr(2, 9) + Math.floor(Math.random() * 10);
+      this.usuarioService.attSenha(this.usuario).subscribe((resp: Usuario) => {
+        alert('Nova senha encaminhado ao e-mail cadastrado.');
+        location.assign('/home');
+      })
+    }, err => {
+      alert('Usuario não existe')
+    })
   }
 
 }

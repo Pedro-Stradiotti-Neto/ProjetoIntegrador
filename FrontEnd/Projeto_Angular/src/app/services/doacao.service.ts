@@ -34,4 +34,12 @@ export class DoacaoService {
       }
     });
   }
+
+  obterPorUsuario(idDoUsuario: number) {
+    return this.http.get(this.enderecoDoServidor + '/Usuario/' + idDoUsuario, {
+      headers: {
+        'authorization': localStorage.getItem('Token'),
+      }
+    });
+  }
 }

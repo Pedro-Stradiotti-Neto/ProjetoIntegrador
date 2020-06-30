@@ -10,13 +10,25 @@ import org.springframework.stereotype.Service;
 
 import generation.smartGiving.model.Usuario;
 import generation.smartGiving.model.UsuarioLogin;
+import generation.smartGiving.repository.DescontoRepository;
+import generation.smartGiving.repository.EnderecoParceiroRepository;
+import generation.smartGiving.repository.FeedRepository;
 import generation.smartGiving.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
 
 	@Autowired
-private UsuarioRepository repository;
+	private UsuarioRepository repository;
+	
+	@Autowired
+	private FeedRepository feedRepository;
+	
+	@Autowired
+	private EnderecoParceiroRepository enderecoRepository;
+	
+	@Autowired
+	private DescontoRepository descontoRepository;
 	
 	public Usuario CadastrarUsuario(Usuario usuario) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -57,6 +69,13 @@ private UsuarioRepository repository;
 			}
 		}
 		return null;
+	}
+	
+	public void Excluir(long codigo) {
+		feedRepository.deleteFeedsWithUserCodigo(codigo);
+		enderecoRepository.deleteEnderecosWithUserCodigo(codigo);
+		descontoRepository.deleteCuponsWithUserCodigo(codigo);
+		repository.deleteById(codigo);
 	}
 	
 }
