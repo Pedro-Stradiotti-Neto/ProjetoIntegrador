@@ -23,7 +23,8 @@ body{
 
 #topo p{
     margin-left: 30px;
-    max-width: 400px;
+    max-width: 450px;
+    font-size: 1.2rem;
 }
 
 .cadastrar{
@@ -305,11 +306,19 @@ button:hover {
 
 @media screen and (max-width: 575px){  
     h2{
-        font-size: 1.6em;
+        font-size: 1.4rem;
     }
 
     H3{
-        font-size: 1.6em;
+        font-size: 1.4rem;
+    }
+
+    h4{
+        font-size: 1.2rem;
+    }
+
+    #sobre p{
+        font-size: 1.0rem;
     }
     
     #topo{
@@ -321,12 +330,13 @@ button:hover {
     }
 
     #topo h1{
-        font-size: 1.6em;
+        font-size: 1.4rem;
         margin: 0 35px;
     }
     #topo p{
         max-width: 450px;
         margin: 5px 35px;
+        font-size: 1.0rem;
     }
 
     #parceiro .logoParceiro{

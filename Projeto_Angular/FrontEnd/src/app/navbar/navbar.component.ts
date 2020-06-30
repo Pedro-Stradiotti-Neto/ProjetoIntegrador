@@ -10,9 +10,12 @@ import { UsuarioLogin } from '../models/usuarioLogin';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
   usuario: Usuario = new Usuario;
   usuarioLogin: UsuarioLogin = new UsuarioLogin;
+  delOk: string;
+  delFail: string;
+  delOkMessage: string;
+  loginOk: string;
 
   faBars = faBars;
   faUser = faUser;
@@ -32,8 +35,6 @@ export class NavbarComponent implements OnInit {
 
     if (this.validar(nome, email, senha, confirmaSenha)) {
       this.subir();
-      alert("Dados enviados com sucesso!");
-      location.assign('/usuarios');
     } else {
       event.preventDefault();
     }
@@ -104,27 +105,84 @@ export class NavbarComponent implements OnInit {
   }
 
   subir() {
+    this.delOk = "false";
+    this.delFail = "false";
     this.usuarioService.cadastrarUsuario(this.usuario).subscribe((resp: Usuario) => {
-      this.usuario = resp
+      this.usuario = resp;
+      localStorage.setItem('delOk', 'true');
+      this.acaoSucesso('Dados', 'enviados');
+      setTimeout(() => {
+        location.assign('/home')
+      }
+        , 2000)
+    }, err => {
+      localStorage.setItem('delFail', 'true');
+      this.acaoFalha('cadastro');
     })
   }
 
   login() {
+    this.delOk = "false";
+    this.delFail = "false";
     this.usuarioService.loginUsuario(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
-      if (resp.token == null) {
-        alert('Usuário não encontrado!')
-      } else {
-        alert('Bem vindo ' + resp.nome)
-        localStorage.setItem('Token', resp.token);
-        localStorage.setItem('Identify', resp.codigo.toString());
-        location.assign('/feed');
-        console.log(resp);
-      }
+      alert('Bem vindo ' + resp.nome);
+      localStorage.setItem('Token', resp.token);
+      localStorage.setItem('Identify', resp.codigo.toString());
+      localStorage.setItem('Perfil', resp.perfil);
+      location.assign('/feed');
+    }, err => {
+      localStorage.setItem('delFail', 'true');
+      this.acaoFalha('login');
     })
   }
 
   logout() {
-    localStorage.removeItem('Token');
+    localStorage.clear();
     location.assign('/home');
+  }
+
+  session() {
+    let on = false;
+    let token = localStorage.getItem('Token');
+    if (token != null) {
+      on = true;
+    }
+    return on;
+  }
+
+  perfil() {
+    let adm = false;
+    let perfil = localStorage.getItem('Perfil');
+
+    if (this.session()) {
+      if (perfil == "adm") {
+        adm = true;
+      }
+    }
+    return adm;
+  }
+
+  acaoSucesso(texto: String, acao: String) {
+    this.delOk = localStorage.getItem('delOk');
+    this.delOkMessage = texto + " " + acao + " com sucesso!";
+    localStorage.removeItem('delOk');
+  }
+
+  acaoFalha(acao: String) {
+    switch (acao) {
+      case "login":
+        this.delFail = localStorage.getItem('delFail');
+        this.delOkMessage = "Usuário não encontrado, tente novamente ou faça o cadastro.";
+        localStorage.removeItem('delFail');
+        break;
+      case "cadastro":
+        this.delFail = localStorage.getItem('delFail');
+        this.delOkMessage = "E-mail já cadastrado, informe outro.";
+        localStorage.removeItem('delFail');
+        break;
+      default:
+        alert("Passei Aqui!")
+        break;
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { DoacaoComponent } from './doacao/doacao.component';
 import { EditarComponent } from './editar/editar.component';
-import { ModalsListagemComponent } from './modals-listagem/modals-listagem.component';
+import { EditarSenhaComponent } from './editar-senha/editar-senha.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +36,15 @@ import { ModalsListagemComponent } from './modals-listagem/modals-listagem.compo
     PagenotfoundComponent,
     DoacaoComponent,
     EditarComponent,
-    ModalsListagemComponent
+    EditarSenhaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

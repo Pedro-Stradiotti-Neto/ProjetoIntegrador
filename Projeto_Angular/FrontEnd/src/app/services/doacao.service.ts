@@ -12,14 +12,26 @@ export class DoacaoService {
   constructor(private http: HttpClient) { }
 
   obterTodos() {
-    return this.http.get(this.enderecoDoServidor);
+    return this.http.get(this.enderecoDoServidor, {
+      headers: {
+        'authorization': localStorage.getItem('Token'),
+      }
+    });
   }
 
   cadastrarDoacao(doacao: Doacao) {
-    return this.http.post(this.enderecoDoServidor, doacao);
+    return this.http.post(this.enderecoDoServidor, doacao, {
+      headers: {
+        'authorization': localStorage.getItem('Token'),
+      }
+    });
   }
 
   attDadosDoacao(doacao: Doacao) {
-    return this.http.put(this.enderecoDoServidor, doacao);
+    return this.http.put(this.enderecoDoServidor, doacao, {
+      headers: {
+        'authorization': localStorage.getItem('Token'),
+      }
+    });
   }
 }
