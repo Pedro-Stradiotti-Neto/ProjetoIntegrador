@@ -91,7 +91,7 @@
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div class="row">
-          <div class="col-sm-6 col-md-4 mt-4" *ngFor="let doacao of doacoes">
+          <div class="col-sm-6 col-md-4 mt-4" *ngFor="let doacao of doacoes | orderBy : key : reverse">
             <div class="card text-white sem-borda">
               <img class="card-img" src="/assets/Cupom.png" alt="Card image">
               <div class="card-img-overlay">

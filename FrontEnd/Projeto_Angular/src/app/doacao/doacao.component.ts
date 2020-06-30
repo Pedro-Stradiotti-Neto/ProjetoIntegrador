@@ -15,6 +15,8 @@ export class DoacaoComponent implements OnInit {
   doacao: Doacao = new Doacao;
   usuario: Usuario = new Usuario;
   doacoes: Doacao[] = [];
+  key: string = 'data';
+  reverse: boolean = true;
 
   constructor(private doacaoService: DoacaoService, private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router) { }
 
