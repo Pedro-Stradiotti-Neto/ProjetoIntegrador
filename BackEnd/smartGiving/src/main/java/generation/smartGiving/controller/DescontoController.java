@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import generation.smartGiving.model.Desconto;
+
 import generation.smartGiving.repository.DescontoRepository;
+
 
 @RestController
 @RequestMapping("/desconto")
@@ -27,6 +30,11 @@ public class DescontoController {
 	@GetMapping
 	public ResponseEntity<List<Desconto>> GetAll(){
 		return ResponseEntity.ok(repository.findAll());
+	}
+	
+	@GetMapping("/Usuario/{codigo}")
+	public ResponseEntity<List<Desconto>> GetByUsuarioId(@PathVariable long codigo){
+		return ResponseEntity.ok(repository.findByUsuarioCodigo(codigo));
 	}
 	
 	@PostMapping
