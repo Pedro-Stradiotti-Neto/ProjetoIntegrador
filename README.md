@@ -4,7 +4,6 @@
 ## Descrição do Projeto
 
 Projeto que visa estimular pessoas que possuem roupas que não utilizam mais a doar para os mais necessitados, seja por não terem condições de comprar, por serem vitimas de desastres naturais ou qualquer outro motivo.
-
 O sistema além de ligar as pessoas que desejam doar à ong, também gera para a pessoa um id que será validado no local de doação gerando um  cupom de desconto, desta maneira todos os envolvidos serão beneficiados, a começar pelo doador que recebe o desconto para usar em qualquer um de nossos parceiros, a pessoa que receberá a doação e o parceiro que elevará sua receita, já que o doador possui um prazo para usar o cupom.
 
 ## Ferramentas Tecnológicas
