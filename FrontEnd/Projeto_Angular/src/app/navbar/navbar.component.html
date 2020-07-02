@@ -72,12 +72,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="alert alert-success" role="alert" *ngIf='delOk == "true"'>
-                            {{delOkMessage}}
+                        <div class="alert alert-success mt-2" role="alert" *ngIf='delOk == "true"'>
+                            {{messageAlert}}
                         </div>
 
-                        <div class="alert alert-danger" role="alert" *ngIf='delFail == "true"'>
-                            {{delOkMessage}}
+                        <div class="alert alert-danger mt-2" role="alert" *ngIf='delFail == "true"'>
+                            {{messageAlert}}
                         </div>
                         <div class="container">
                             <div class="row mt-4">
@@ -120,18 +120,19 @@
                                 <div class="col-md-12">
                                     <div class="card d-flex justify-content-center align-items-center">
                                         <div class="d-flex justify-content-center p-1">
-                                            <img src="https://i.imgur.com/PO8Lfao.png"
-                                                class="card-img-top rounded-circle w-75" alt="...">
+                                            <img src="../../assets/avatarLogin.png"
+                                                class="card-img-top rounded-circle w-75"
+                                                alt="Imagem inicial de usuário">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="alert alert-success" role="alert" *ngIf='delOk == "true"'>
-                                {{delOkMessage}}
+                                {{messageAlert}}
                             </div>
 
                             <div class="alert alert-danger" role="alert" *ngIf='delFail == "true"'>
-                                {{delOkMessage}}
+                                {{messageAlert}}
                             </div>
                             <div class="row mt-4">
                                 <div class="col-md-12">
@@ -157,7 +158,6 @@
                                             <label for="nameRegister">Sexo: </label>
                                             <select class="custom-select" id="inputGroupSelect01" name="sexo"
                                                 [(ngModel)]="usuario.sexo">
-                                                <option selected disabled>Escolha</option>
                                                 <option value="M">Masculino</option>
                                                 <option value="F">Feminino</option>
                                             </select>

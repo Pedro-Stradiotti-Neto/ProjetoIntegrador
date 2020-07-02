@@ -109,7 +109,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let doacao of doacoes">
+                        <tr *ngFor="let doacao of doacoes | orderBy : key">
                             <th scope="row">{{doacao.codigo}}</th>
                             <td>{{doacao.endereco}}</td>
                             <td>{{doacao.data | date: 'dd/MM/yyyy'}}</td>

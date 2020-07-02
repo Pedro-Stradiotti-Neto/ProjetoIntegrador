@@ -22,6 +22,15 @@
           </div>
         </div>
       </div>
+
+      <div class="alert alert-success" role="alert" *ngIf='delStatus'>
+        {{alertMessage}}
+      </div>
+
+      <div class="alert alert-danger" role="alert" *ngIf='delFalha'>
+        {{alertMessage}}
+      </div>
+
     </div>
 
     <div>

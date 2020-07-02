@@ -4,6 +4,10 @@
             <h2 class="text-center mt-5">Entre em contato</h2>
         </div>
 
+        <div class="alert alert-success" role="alert" *ngIf='delStatus'>
+            {{alertMessage}}
+        </div>
+
         <div id="contato">
             <form class="formulario">
                 <div class="form-group">
@@ -16,11 +20,11 @@
 
                 <div class="form-group">
                     <fa-icon [icon]='faEnvelopeSquare' class="fa mr-2"></fa-icon><label
-                        for="emailContato">Email<span>*</span></label>
+                        for="emailContato">E-mail<span>*</span></label>
                     <input type="text" class="form-control" id="emailContato" aria-describedby="emailHelp"
-                        placeholder="Digite seu Email">
+                        placeholder="Digite seu E-mail">
                     <small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar o seu
-                        email com
+                        e-mail com
                         ninguém</small>
                     <div style="visibility: hidden" class="alert alert-danger" role="alert-email" id="alert-email">
                     </div>

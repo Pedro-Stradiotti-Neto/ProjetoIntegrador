@@ -47,6 +47,10 @@
 
                             <h3 class="text-center mb-5">Meus Posts</h3>
 
+                            <div class="alert alert-success" role="alert" *ngIf='postStatus'>
+                                {{alertMessage}}
+                            </div>
+
                             <div class="card mb-4" *ngFor="let post of listaPostagens | orderBy : key : reverse">
                                 <div class="card mb-4">
                                     <div class="card-header bg-white">

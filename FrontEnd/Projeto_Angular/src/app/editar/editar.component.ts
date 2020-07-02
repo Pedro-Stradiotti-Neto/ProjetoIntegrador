@@ -16,19 +16,14 @@ export class EditarComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-
-    var id = this.route.snapshot.params['id']
-    this.findById(id);
-    console.log(this.postagem);
-
-    let post: string = localStorage.getItem('excluido');
-
-    if (post == "true") {
-      alert('Postagem excluida com sucesso')
-      localStorage.removeItem('excluido');
-    }
     window.scroll(0, 0);
 
+    if (localStorage.getItem('Token') == null) {
+      this.router.navigate(["/notFound"])
+    } else {
+      let id = this.route.snapshot.params['id']
+      this.findById(id);
+    }
   }
 
   findById(id: number) {
@@ -40,8 +35,8 @@ export class EditarComponent implements OnInit {
   salvar() {
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
+      localStorage.setItem('editado', "true");
       this.router.navigate(['/feed'])
-      location.assign('/feed')
     })
   }
 
@@ -51,8 +46,8 @@ export class EditarComponent implements OnInit {
 
   btnSim() {
     this.postagemService.deletePostagem(this.postagem.codigo).subscribe(() => {
-      location.assign('/feed');
-      localStorage.setItem('excluido', 'true')
+      localStorage.setItem('excluido', 'true');
+      this.router.navigate(['/feed'])
     })
   }
 
