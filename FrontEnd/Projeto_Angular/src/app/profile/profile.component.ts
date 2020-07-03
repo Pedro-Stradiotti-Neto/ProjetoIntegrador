@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
       this.router.navigate(["/notFound"])
     } else {
       let codigo = this.route.snapshot.params['id'];
-      if (codigo != localStorage.getItem("Identify")) {
+      if (codigo != localStorage.getItem("Identify") && localStorage.getItem("Perfil") != "adm") {
         this.router.navigate(["/notFound"])
       } else {
         this.obterUsuarioPorId(codigo);
@@ -70,9 +70,7 @@ export class ProfileComponent implements OnInit {
   salvar() {
     this.usuarioService.attDadosUsuario(this.usuario).subscribe((resp: Usuario) => {
       this.usuario = resp;
-      localStorage.setItem('Perfil', this.usuario.perfil)
       this.router.navigate(['/feed']);
-      location.assign('/feed');
     })
   }
 
