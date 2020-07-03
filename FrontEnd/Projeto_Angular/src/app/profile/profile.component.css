@@ -16,6 +16,19 @@ main{
     border-color: cornflowerblue;
 }
 
+.btn-voltar {
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: #007bff;
+}
+
+.btn-voltar:hover {
+    color: #007bff;
+    font-weight: bolder;
+    background-color: #ffffff;
+    border-color: #007bff;
+}
+
 .btn-deletar {
     color: #ffffff;
     font-weight: bolder;
@@ -27,6 +40,32 @@ main{
     font-weight: bolder;
     background-color: #ffffff;
     border-color: red;
+}
+
+.btn-button-excluir {
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: #dc3545;
+}
+
+.btn-button-excluir:hover {
+    color: #dc3545;
+    font-weight: bolder;
+    background-color: #ffffff; 
+    border-color: #dc3545;
+}
+
+.btn-button-cancelar {
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: #6c757d;    
+  }
+  
+.btn-button-cancelar:hover {
+    color: #6c757d;
+    font-weight: bolder;
+    background-color: #ffffff; 
+    border-color: #6c757d;
 }
 
 .perfil {

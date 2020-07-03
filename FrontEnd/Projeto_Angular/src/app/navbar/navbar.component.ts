@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
   usuarioLogin: UsuarioLogin = new UsuarioLogin;
   delOk: string;
   delFail: string;
-  delOkMessage: string;
+  messageAlert: string;
   loginOk: string;
 
   faBars = faBars;
@@ -110,7 +110,7 @@ export class NavbarComponent implements OnInit {
     this.usuarioService.cadastrarUsuario(this.usuario).subscribe((resp: Usuario) => {
       this.usuario = resp;
       localStorage.setItem('delOk', 'true');
-      this.acaoSucesso('Dados', 'enviados');
+      this.acaoSucesso('cadastro', this.usuarioLogin);
       setTimeout(() => {
         location.assign('/home')
       }
@@ -125,11 +125,14 @@ export class NavbarComponent implements OnInit {
     this.delOk = "false";
     this.delFail = "false";
     this.usuarioService.loginUsuario(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
-      alert('Bem vindo ' + resp.nome);
-      localStorage.setItem('Token', resp.token);
-      localStorage.setItem('Identify', resp.codigo.toString());
-      localStorage.setItem('Perfil', resp.perfil);
-      location.assign('/feed');
+      localStorage.setItem('delOk', 'true');
+      this.acaoSucesso("login", resp);
+      setTimeout(() => {
+        localStorage.setItem('Token', resp.token);
+        localStorage.setItem('Identify', resp.codigo.toString());
+        localStorage.setItem('Perfil', resp.perfil);
+        location.assign('/feed');
+      }, 2000);
     }, err => {
       localStorage.setItem('delFail', 'true');
       this.acaoFalha('login');
@@ -162,26 +165,36 @@ export class NavbarComponent implements OnInit {
     return adm;
   }
 
-  acaoSucesso(texto: String, acao: String) {
-    this.delOk = localStorage.getItem('delOk');
-    this.delOkMessage = texto + " " + acao + " com sucesso!";
-    localStorage.removeItem('delOk');
+  acaoSucesso(acao: String, userLogin: UsuarioLogin) {
+    switch (acao) {
+      case "login":
+        this.delOk = localStorage.getItem('delOk');
+        this.messageAlert = "Bem vindo " + userLogin.nome + "!";
+        localStorage.removeItem('delOk');
+        break;
+      case "cadastro":
+        this.delOk = localStorage.getItem('delOk');
+        this.messageAlert = "Dados enviados com sucesso!";
+        localStorage.removeItem('delOk');
+        break;
+      default:
+        break;
+    }
   }
 
   acaoFalha(acao: String) {
     switch (acao) {
       case "login":
         this.delFail = localStorage.getItem('delFail');
-        this.delOkMessage = "Usuário não encontrado, tente novamente ou faça o cadastro.";
+        this.messageAlert = "Usuário não encontrado, tente novamente ou faça o cadastro.";
         localStorage.removeItem('delFail');
         break;
       case "cadastro":
         this.delFail = localStorage.getItem('delFail');
-        this.delOkMessage = "E-mail já cadastrado, informe outro.";
+        this.messageAlert = "E-mail já cadastrado, informe outro.";
         localStorage.removeItem('delFail');
         break;
       default:
-        alert("Passei Aqui!")
         break;
     }
   }

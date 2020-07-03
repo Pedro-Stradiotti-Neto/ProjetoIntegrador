@@ -11,10 +11,13 @@ export class ContatoComponent implements OnInit {
   faPhoneSquareAlt = faPhoneSquareAlt;
   faUserCircle = faUserCircle;
   faEnvelopeSquare = faEnvelopeSquare;
+  delStatus: boolean = false;
+  alertMessage: String;
 
   constructor() { }
 
   ngOnInit(): void {
+    window.scroll(0, 0);
   }
 
   enviar() {
@@ -24,7 +27,9 @@ export class ContatoComponent implements OnInit {
     let mensagem: string = (<HTMLSelectElement>document.getElementById('msgContato')).value;
 
     if (this.validaDados(nome, email, mensagem)) {
-      alert("Dados enviados com sucesso!");
+      this.delStatus = true;
+      this.alertMessage = "Dados enviados com sucesso!";
+      window.scroll(0, 0)
     } else {
       event.preventDefault();
     }

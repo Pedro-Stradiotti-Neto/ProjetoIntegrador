@@ -5,6 +5,7 @@ import { Endereco } from '../models/endereco';
 import { Doacao } from '../models/doacao';
 import { EnderecoService } from '../services/endereco.service';
 import { DoacaoService } from '../services/doacao.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listagem-de-usuarios',
@@ -23,15 +24,22 @@ export class ListagemDeUsuariosComponent implements OnInit {
   delOk: String = 'false';
   delFail: String = 'false';
   delOkMessage: String;
+  key: string = 'data';
+  reverse: boolean = true;
 
-  constructor(private usuarioService: UsuarioService, private enderecoService: EnderecoService, private doacaoService: DoacaoService) { }
+  constructor(private usuarioService: UsuarioService, private enderecoService: EnderecoService, private doacaoService: DoacaoService, private router: Router) { }
 
   ngOnInit(): void {
-    this.obterTodosOsUsuarios();
-    this.obterTodosOsEnderecos();
-    this.obterTodosAsDoacoes();
-    this.endereco.usuario = new Usuario;
-    window.scroll(0, 0);
+
+    if (localStorage.getItem('Token') == null || localStorage.getItem('Perfil') != "adm") {
+      this.router.navigate(["/notFound"])
+    } else {
+      this.obterTodosOsUsuarios();
+      this.obterTodosOsEnderecos();
+      this.obterTodosAsDoacoes();
+      this.endereco.usuario = new Usuario;
+      window.scroll(0, 0);
+    }
   }
 
   acaoSucesso(texto: String, acao: String) {
@@ -124,15 +132,25 @@ export class ListagemDeUsuariosComponent implements OnInit {
   }
 
   btnAtualizarEndereco() {
-    this.enderecoService.attDadosEndereco(this.enderecoEdit).subscribe((resp: Endereco) => {
-      this.enderecoEdit = resp;
-      localStorage.setItem('delOk', 'true');
-      this.acaoSucesso('Endereço', 'atualizado');
-      setTimeout(() => {
-        location.assign('/usuarios')
-      }
-        , 2000)
+
+    let id = parseInt((<HTMLSelectElement>document.getElementById("inputGroupSelect03")).value)
+
+    this.usuarioService.obterPorId(id).subscribe((resp: Usuario) => {
+      this.enderecoEdit.parceiro = resp.nome;
+      this.enderecoEdit.usuario.codigo = resp.codigo;
     })
+
+    setTimeout(() => {
+      this.enderecoService.attDadosEndereco(this.enderecoEdit).subscribe((resp: Endereco) => {
+        this.enderecoEdit = resp;
+        localStorage.setItem('delOk', 'true');
+        this.acaoSucesso('Endereço', 'atualizado');
+        setTimeout(() => {
+          location.assign('/usuarios')
+        }
+          , 2000);
+      })
+    }, 2000)
   }
 
   esconderSenha(senha) {

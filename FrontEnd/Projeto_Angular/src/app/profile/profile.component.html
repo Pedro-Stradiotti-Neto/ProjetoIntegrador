@@ -35,8 +35,8 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Ainda não</button>
-                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="btnSim()">Quero
+                    <button type="button" class="btn btn-button-cancelar" data-dismiss="modal">Ainda não</button>
+                    <button type="button" class="btn btn-button-excluir" data-dismiss="modal" (click)="btnSim()">Quero
                         Deletar!</button>
                 </div>
             </div>
@@ -154,8 +154,8 @@
             </fieldset>
             <div class="form-group row buttons mt-4">
                 <div class="col-sm-12 d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary" id="edit" (click)='editar()'>Editar</button>
-                    <button disabled type="submit" class="btn btn-primary" id="save" (click)='salvar()'>Salvar</button>
+                    <button type="button" class="btn btn-voltar" id="edit" (click)='editar()'>Editar</button>
+                    <button disabled type="submit" class="btn btn-voltar" id="save" (click)='salvar()'>Salvar</button>
                 </div>
             </div>
         </form>
