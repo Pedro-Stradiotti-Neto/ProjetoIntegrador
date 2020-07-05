@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DoacaoComponent } from './doacao.component';
+import { DoacaoComponent } from './doacao.component'
 
 describe('DoacaoComponent', () => {
   let component: DoacaoComponent;

@@ -23,7 +23,7 @@
   color: #ffffff;
   margin: 0 auto 70px;
   width: 90%;
-  max-width: 500px;
+  max-width: 430px;
 }
 
 .btn-doar {
@@ -55,6 +55,16 @@
       
       display: grid;
       grid-template-columns: 1fr;   
+      margin: 0;
+  } 
+}
+
+@media screen and (max-width:721px) {
+  #senha .container{
+      
+      display: grid;
+      grid-template-columns: 1fr;   
+    
   } 
 }
 

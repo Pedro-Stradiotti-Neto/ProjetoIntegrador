@@ -71,7 +71,6 @@ header a, a:visited {
 }
 
 .lamps-2 h1 {
-    font-family: 'Playball', cursive;
     color: #fff;
     font-size: 76px;
     letter-spacing: 9px;
@@ -219,7 +218,6 @@ img.vert-move2 {
     transform: translate(-50%,-50%);
 }
 #msg{
-    font-family: cursive;
     font-size: 25px;
     color:#fff;
     text-align: center;
@@ -232,7 +230,6 @@ img.vert-move2 {
     transform: translateX(-50%);
 }
 #f1,#f2{
-    font-family: cursive;
     font-size: 100px;
     color:white;
     text-shadow: 0 0 10px rgba(255,255,255,.7);
@@ -267,7 +264,6 @@ img.vert-move2 {
     transform: translate(-50%,-50%);
 }
 #info{
-    font-family: cursive;
     font-size: 13px;
     color:#fff;
     text-align: center;
@@ -280,8 +276,7 @@ img.vert-move2 {
     height: 30px;
     width: 120px;
     color:white;
-    background-color:#E94674;
-    font-family: monospace;
+    background-color:#4682B4;
     font-size: 13px;
     text-align: center;
     line-height: 30px;
@@ -290,7 +285,7 @@ img.vert-move2 {
     margin-top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 0 10px rgba(233,68,114,.8);
+    box-shadow: 0 0 10px rgba(70,130,180,);
 }
 #btn:hover{
     cursor: pointer;
