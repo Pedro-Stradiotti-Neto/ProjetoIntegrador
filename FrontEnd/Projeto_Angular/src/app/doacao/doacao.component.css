@@ -96,3 +96,17 @@
     flex: 100%;
   }
 }
+/* cupom */
+
+@media screen and (max-width:575px){
+  .card-img-overlay{
+    flex:33.33%;
+  }
+} 
+
+
+ @media screen and (max-width:960px) {
+  .card-img-overlay{
+    flex: 50%;
+  }
+}

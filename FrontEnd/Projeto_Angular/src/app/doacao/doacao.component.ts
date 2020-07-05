@@ -6,6 +6,7 @@ import { UsuarioService } from '../services/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Endereco } from '../models/endereco';
 import { EnderecoService } from '../services/endereco.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-doacao',
@@ -20,8 +21,6 @@ export class DoacaoComponent implements OnInit {
   enderecos: Endereco[] = [];
   key: string = 'data';
   reverse: boolean = true;
-  alertMessage: String;
-  enviarOk: boolean = false;
 
   constructor(private doacaoService: DoacaoService, private usuarioService: UsuarioService, private enderecoService: EnderecoService, private route: ActivatedRoute, private router: Router) { }
 
@@ -63,11 +62,15 @@ export class DoacaoComponent implements OnInit {
     this.doacaoService.cadastrarDoacao(this.doacao)
       .subscribe((resp: Doacao) => {
         this.doacao = resp;
-        this.enviarOk = true;
-        this.alertMessage = "Agora falta pouco...\nApresente o código abaixo no local de doação escolhido!\n\n" + this.doacao.codigo + "\n\nAgradecemos desde já!"
-        setTimeout(() => {
+
+        Swal.fire({
+          title: 'Agora falta pouco...',
+          html: 'Apresente o código abaixo no local de doação escolhido!<br><br><b>' + this.doacao.codigo.toUpperCase() + '</b><br><br>Agradecemos desde já!',
+          icon: 'success',
+          confirmButtonColor: '#183059',
+        }).then(() => {
           location.assign("/doacao/" + this.usuario.codigo)
-        }, 10000);
+        });
       })
   }
 }

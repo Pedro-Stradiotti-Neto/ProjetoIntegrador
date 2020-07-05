@@ -26,9 +26,9 @@ public class Feed {
 	@NotNull
 	private Date data = new java.sql.Date(System.currentTimeMillis());
 	
-	@Column(name = "DS_PUBLICACAO", nullable = false, length = 200)
+	@Column(name = "DS_PUBLICACAO", nullable = false, length = 255)
 	@NotNull
-	@Size(min = 5, max = 200)
+	@Size(min = 5, max = 255)
 	private String texto;
 
 	@ManyToOne

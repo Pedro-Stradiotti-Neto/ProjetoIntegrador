@@ -18,7 +18,7 @@ public class Desconto {
 	@Column(name = "CD_DESCONTO", nullable = false, length = 10)
 	@Id
 	@Size(max = 10)
-	private String codigo = "4F7GGT6DEF";
+	private String codigo;
 	
 	@Column(name = "DS_ENDERECO", nullable = false, length = 100)
 	@NotNull
